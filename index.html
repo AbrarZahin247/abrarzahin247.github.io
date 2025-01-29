@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Abrar Zahin - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar {
+            background-color: #fff;
+            border-right: 1px solid #dee2e6;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        .right-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            padding: 2rem;
+            background-color: #fff;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .nav-link {
+            padding: 0.75rem 1.5rem;
+            color: #495057;
+        }
+        .nav-link.active {
+            background-color: #e9ecef;
+            font-weight: 500;
+        }
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .skill-badge {
+            background-color: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Navigation -->
+    <div class="sidebar" style="width: 280px;">
+        <div class="px-1 py-3">
+            <div class="text-center">
+                <img src="profile.jpeg" alt="Profile" class="rounded mb-3" style="width: 150px;">
+                <!-- <div class="mb-4">
+                    <a href="CV_Md.Abrar_Zahin.pdf" download class="btn btn-primary mb-3">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <iframe src="CV_Md.Abrar_Zahin.pdf" width="100%" height="400px"></iframe>
+                </div> -->
+            </div>
+
+            <h3 class="mx-2 mb-4 fw-bolder">Md. Abrar Zahin</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#about" onclick="showSection('about')">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#works" onclick="showSection('works')">My Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#research" onclick="showSection('research')">My Research</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <div id="about" class="content-section">
+            <h2 class="mb-4">About Me</h2>
+            
+            <!-- Personal Introduction -->
+            <div class="project-card mb-4">
+                <h4>Profile</h4>
+                <p class="lead word-wrap">
+                    As a graduate of Electrical & Electronic Engineering from Chittagong University of Engineering & Technology (CUET) and a Master’s degree holder from Bangladesh University of Engineering & Technology (BUET), I am committed to harnessing computer vision and AI for social good. During my undergraduate studies, I developed an embedded health monitoring system to improve healthcare accessibility in underserved regions. At BUET, my graduate research advanced lightweight AI solutions—including the YOLOv5n-lite model for human activity recognition and SVM-driven crop analytics—to tackle challenges in resource-constrained environments.
+
+My work spans impactful projects like the DRIP climate risk platform and groundwater forecasting systems for sustainable agriculture. I envision AI as a catalyst for equity, striving to build tools that empower marginalized communities—from early disaster warning systems to affordable medical diagnostics and precision farming technologies. My mission is to ensure technological innovation translates directly into societal progress.
+                </p>
+            </div>
+
+            <!-- Modified Education Section -->
+            <div class="mb-4">
+                <h4>Education</h4>
+                <div class="project-card">
+                    <h5>Master of Science in Electrical & Electronic Engineering</h5>
+                    <p>Bangladesh University of Engineering and Technology (BUET)<br>
+                    2022-2024</p>
+                    
+                    <h5>Bachelor of Science in Electrical & Electronic Engineering</h5>
+                    <p>Chittagong University of Engineering and Technology (CUET)<br>
+                    2015-2019</p>
+                </div>
+            </div>
+            <!-- Rest of the sections (Skills, Awards) remain unchanged -->
+        </div>
+        <!-- About Section -->
+        <!-- <div id="about" class="content-section">
+            <h2 class="mb-4">About Me</h2>
+            <div class="mb-4">
+                <h4>Education</h4>
+                <div class="project-card">
+                    <h5>MSc in Electrical & Electronic Engineering</h5>
+                    <p>Bangladesh University of Engineering and Technology<br>
+                    CGPA: 3.42/4.00 (2022-2024)</p>
+                    
+                    <h5>BSc in Electrical & Electronic Engineering</h5>
+                    <p>Chittagong University of Engineering and Technology<br>
+                    CGPA: 2.97/4.00 (2015-2019)</p>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h4>Technical Skills</h4>
+                <div class="project-card">
+                    <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-badge"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-badge"><i class="fab fa-aws"></i> AWS</div>
+                    <div class="skill-badge"><i class="fas fa-brain"></i> PyTorch</div>
+                    <div class="skill-badge"><i class="fas fa-project-diagram"></i> TensorFlow</div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h4>Awards</h4>
+                <div class="project-card">
+                    <p>🏆 Arduino Fundamentals Certification<br>
+                    🥈 Runner-Up - English Debating Contest 2016<br>
+                    🎓 MSc Fellowship Recipient</p>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Works Section -->
+        <div id="works" class="content-section" style="display: none;">
+            <h2 class="mb-4">My Works</h2>
+            <div class="project-card">
+                <h4>DRIP Platform Development</h4>
+                <p>Lead web developer for Disaster and Climate Risk Information Platform</p>
+                <div class="skill-badge">ASP.NET Core</div>
+                <div class="skill-badge">JavaScript</div>
+                <a href="http://drip.plancomm.gov.bd/" target="_blank" class="btn btn-sm btn-primary mt-2">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h4>Movie Recommendation System</h4>
+                <p>Collaborative filtering and matrix factorization implementation</p>
+                <div class="skill-badge">Python</div>
+                <div class="skill-badge">Machine Learning</div>
+            </div>
+        </div>
+
+        <!-- Research Section -->
+        <div id="research" class="content-section" style="display: none;">
+            <h2 class="mb-4">My Research</h2>
+            <div class="project-card">
+                <h4>Lightweight Human Activity Recognition</h4>
+                <p>Developed PWPR-SFGKD technique and YOLOv5n-lite model</p>
+                <div class="skill-badge">Computer Vision</div>
+                <div class="skill-badge">Deep Learning</div>
+            </div>
+
+            <div class="project-card">
+                <h4>Groundwater Level Forecasting</h4>
+                <p>Implemented GRU and LSTM models for water level prediction</p>
+                <div class="skill-badge">Time Series</div>
+                <div class="skill-badge">RNN</div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="content-section" style="display: none;">
+            <h2 class="mb-4">Contact</h2>
+            <div class="project-card">
+                <p>📧 abrar.bd27@gmail.com<br>
+                📱 +8801685949955<br>
+                📍 Bashundhara R/A, Dhaka, Bangladesh</p>
+                
+                <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                
+                <h5 class="mt-4">References</h5>
+                <ul>
+                    <li>Dr. Mohammad Ariful Haque (BUET)</li>
+                    <li>Dr. Muhammad Ahsan Ullah (CUET)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <!-- <div class="right-sidebar">
+        <div class="text-center">
+            <img src="profile.jpeg" alt="Profile" class="rounded-circle mb-3" style="width: 150px;">
+            <div class="mb-4">
+                <a href="CV_Md.Abrar_Zahin.pdf" download class="btn btn-primary mb-3">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <iframe src="CV_Md.Abrar_Zahin.pdf" width="100%" height="400px"></iframe>
+            </div>
+        </div>
+    </div> -->
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Update active class on nav items
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
