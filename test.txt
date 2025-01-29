@@ -1,0 +1,132 @@
+<div class="project-card">
+    <h4>Movie Recommendation System using Collaborative Filtering</h4>
+    <div class="description-container">
+        <p class="truncated-text">
+            Developed a movie recommendation system implementing two collaborative filtering approaches: 
+            Matrix Factorization and GridSearchCV-optimized SVD. The system predicts user preferences 
+            based on historical ratings from MovieLens data, employing advanced machine learning techniques...
+            <span class="full-text" style="display: none;">
+                to optimize recommendations. The first approach built a user-movie rating matrix from ratings.csv,
+                factorized into latent feature matrices (U and V) using gradient descent with regularization.
+                Hyperparameter analysis revealed optimal performance at lower feature dimensions (K=2) with
+                60 iterations balancing accuracy and overfitting risks.
+                
+                The second approach leveraged scikit-surprise's GridSearchCV to optimize SVD parameters
+                (n_epochs=10, lr_all=0.005, reg_all=0.4). Evaluation using genre-based F1 scores showed
+                the custom matrix factorization achieved scores >0.5 for all users, with 60% of cases
+                exceeding 0.66 (e.g., User 311: 0.84). 
+                
+                <strong>Key Findings:</strong> Custom implementation matched library performance while
+                providing deeper algorithmic understanding. Matrix factorization required careful balance
+                between computational cost (O(n²)) and accuracy, while library SVD offered efficient
+                hyperparameter tuning.
+                
+                <strong>Tools:</strong> Python, NumPy, Pandas, Matplotlib, scikit-surprise
+                <strong>Challenges:</strong> Addressed matrix sparsity through dimensionality reduction
+                and controlled iterations
+                <strong>Conclusion:</strong> Both methods effectively predicted preferences, with potential
+                for hybrid future implementations combining interpretability and optimization efficiency.
+            </span>
+        </p>
+    </div>
+    <div class="skill-badges">
+        <div class="skill-badge">Python</div>
+        <div class="skill-badge">Machine Learning</div>
+        <div class="skill-badge">Matrix Factorization</div>
+        <div class="skill-badge">SVD</div>
+        <div class="skill-badge">NumPy</div>
+    </div>
+    <div class="card-actions">
+        <!-- <a href="#" target="_blank" class="btn btn-primary">View Code</a> -->
+        <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
+    </div>
+</div>
+
+<style>
+.project-card {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 16px;
+    background: #fff;
+}
+
+.truncated-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.full-text {
+    display: block;
+    margin-top: 8px;
+}
+
+.full-text strong {
+    color: #2c3e50;
+    display: block;
+    margin-top: 12px;
+}
+
+.skill-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.skill-badge {
+    background: #e8f4ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    border: 1px solid #cde0f5;
+}
+
+.card-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #2980b9;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.toggle-btn:hover {
+    color: #1a5276;
+    text-decoration: underline;
+}
+</style>
+
+<script>
+function toggleDescription(button) {
+    const container = button.closest('.project-card');
+    const fullText = container.querySelector('.full-text');
+    const truncated = container.querySelector('.truncated-text');
+    
+    if (fullText.style.display === 'none') {
+        fullText.style.display = 'inline';
+        truncated.style.display = 'block';
+        truncated.style.webkitLineClamp = 'unset';
+        button.textContent = 'Show less';
+        container.querySelector('.skill-badges').scrollIntoView({ behavior: 'smooth' });
+    } else {
+        fullText.style.display = 'none';
+        truncated.style.display = '-webkit-box';
+        button.textContent = 'Show more';
+    }
+}
+</script>
