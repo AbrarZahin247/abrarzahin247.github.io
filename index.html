@@ -107,6 +107,11 @@
             color: #1a5276;
             text-decoration: underline;
         }
+        .pdf-modal iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -114,7 +119,7 @@
     <div class="sidebar" style="width: 280px;">
         <div class="px-1 py-3">
             <div class="text-center">
-                <img src="profile.jpeg" alt="Profile" class="rounded mb-3" style="width: 150px;">
+                <img src="profile.jpeg" alt="Profile" class="rounded-circle mb-3" style="width: 150px;">
                 <!-- <div class="mb-4">
                     <a href="CV_Md.Abrar_Zahin.pdf" download class="btn btn-primary mb-3">
                         <i class="fas fa-download"></i> Download CV
@@ -145,7 +150,7 @@
     <div class="main-content">
         <!-- About Section -->
         <div id="about" class="content-section">
-            <h2 class="mb-4 px-4">About Me</h2>
+            <h2 class="mb-4 px-4 fw-bolder">About Me</h2>
             
             <!-- Personal Introduction -->
             <div class="project-card mb-4">
@@ -174,7 +179,7 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
         </div>
         <!-- Works Section -->
         <div id="works" class="content-section" style="display: none;">
-            <h2 class="mb-4">My Works</h2>
+            <h2 class="mb-4 px-4 fw-bolder">My Works</h2>
             <div class="project-card">
                 <h4>Movie Recommendation System using Collaborative Filtering</h4>
                 <div class="description-container">
@@ -215,6 +220,9 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
                 </div>
                 <div class="card-actions">
                     <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
+                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE_6608_Movie_Recommendation_System_Report.pdf')">
+                        View Full Report
+                    </button>
                 </div>
             </div>
 
@@ -228,7 +236,7 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
 
         <!-- Research Section -->
         <div id="research" class="content-section" style="display: none;">
-            <h2 class="mb-4">My Research</h2>
+            <h2 class="mb-4 px-4 fw-bolder">My Research</h2>
             <div class="project-card">
                 <h4>Lightweight Human Activity Recognition</h4>
                 <p>Developed PWPR-SFGKD technique and YOLOv5n-lite model</p>
@@ -248,9 +256,7 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
         <div id="contact" class="content-section" style="display: none;">
             <h2 class="mb-4">Contact</h2>
             <div class="project-card">
-                <p>📧 abrar.bd27@gmail.com<br>
-                📱 +8801685949955<br>
-                📍 Bashundhara R/A, Dhaka, Bangladesh</p>
+                <p>📧 abrar.bd27@gmail.com</p>
                 
                 <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="btn btn-primary">
                     <i class="fab fa-linkedin"></i> LinkedIn
@@ -265,6 +271,25 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
         </div>
     </div>
 
+
+    <!-- PDF Modal -->     
+    <div class="modal fade" id="pdfModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">View Pdf Document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pdf-modal">
+                    <iframe id="pdfFrame" title="PDF Document"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
 
     <script>
 
@@ -300,6 +325,23 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
                 truncated.style.display = '-webkit-box';
                 button.textContent = 'Show more';
             }
+        }
+
+        // ============== dynamic pdf loader
+        function openPdfModal(pdfUrl) {
+            const pdfFrame = document.getElementById('pdfFrame');
+            const modal = new bootstrap.Modal(document.getElementById('pdfModal'));
+            
+            // Set PDF source
+            pdfFrame.src = pdfUrl;
+            
+            // Show modal
+            modal.show();
+            
+            // Clear PDF when modal closes
+            document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
+                pdfFrame.src = '';
+            });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
