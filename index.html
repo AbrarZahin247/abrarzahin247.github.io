@@ -237,40 +237,42 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
                 </div>
             </div>
             <!--LCC Project-->
-            <div class="project-card"> <h4>Leaf Color Chart (LCC) Prediction for Rice Fields Using Drone Imagery</h4> <div class="description-container"> <p class="truncated-text"> Developed an automated system to predict LCC readings for nitrogen assessment in rice fields using drone imagery, K-Means clustering, and SVM classification. The solution reduces manual LCC dependency, enabling farmers to optimize urea usage, minimize environmental harm, and cut costs. Dominant RGB values from drone images are extracted via K-Means clustering and classified into LCC readings using SVM. <span class="full-text" style="display: none;"> <strong>Methodology:</strong> - Captured drone imagery of fields with LCC readings 2 and 3 for training (6 images) and testing (8 images). - Applied <strong>K-Means clustering</strong> to group RGB pixels into 2–5 clusters, extracting the 4 most frequent RGB values as features (Table I). - Trained four SVM models using 2–5 RGB values. Models with 4–5 clusters achieved 100% accuracy for LCC-2 and 87.5% accuracy for LCC-3 (Table II).
+                <div class="project-card"> <h4>Leaf Color Chart (LCC) Prediction for Rice Fields Using Drone Imagery</h4> <div class="description-container"> <p class="truncated-text"> Developed an automated system to predict LCC readings for nitrogen assessment in rice fields using drone imagery, K-Means clustering, and SVM classification. The solution reduces manual LCC dependency, enabling farmers to optimize urea usage, minimize environmental harm, and cut costs. Dominant RGB values from drone images are extracted via K-Means clustering and classified into LCC readings using SVM. <span class="full-text" style="display: none;"> <strong>Methodology:</strong> - Captured drone imagery of fields with LCC readings 2 and 3 for training (6 images) and testing (8 images). - Applied <strong>K-Means clustering</strong> to group RGB pixels into 2–5 clusters, extracting the 4 most frequent RGB values as features (Table I). - Trained four SVM models using 2–5 RGB values. Models with 4–5 clusters achieved 100% accuracy for LCC-2 and 87.5% accuracy for LCC-3 (Table II).
 
-                        <strong>Performance:</strong> 
-                        - High accuracy attributed to manual curation of diverse test images and dominant RGB feature selection.
-                        - Small dataset (6 training, 8 testing images) may inflate accuracy; broader validation needed.
-            
-                        <strong>Impact:</strong> 
-                        - Scalable solution for large fields, eliminating farmer training in LCC usage.
-                        - Addresses environmental risks: excessive urea causes soil acidity, water pollution, and ozone depletion.
-            
-                        <strong>Challenges:</strong> 
-                        - Farmers’ limited LCC adoption due to lack of access/training.
-                        - Manual image curation required to ensure color variation.
-                        - SVM outperformed simpler models due to complex RGB data distributions.
-            
-                        <strong>Tools:</strong> Python, K-Means Clustering, SVM, drone imaging, manual validation.
-            
-                        <strong>Conclusion:</strong> The system demonstrates feasibility in automating nitrogen assessment, with potential for cost reduction and environmental protection. Future work requires larger datasets and validation across more LCC categories.
-                    </span>
-                </p>
+                            <strong>Performance:</strong> 
+                            - High accuracy attributed to manual curation of diverse test images and dominant RGB feature selection.
+                            - Small dataset (6 training, 8 testing images) may inflate accuracy; broader validation needed.
+                
+                            <strong>Impact:</strong> 
+                            - Scalable solution for large fields, eliminating farmer training in LCC usage.
+                            - Addresses environmental risks: excessive urea causes soil acidity, water pollution, and ozone depletion.
+                
+                            <strong>Challenges:</strong> 
+                            - Farmers’ limited LCC adoption due to lack of access/training.
+                            - Manual image curation required to ensure color variation.
+                            - SVM outperformed simpler models due to complex RGB data distributions.
+                
+                            <strong>Tools:</strong> Python, K-Means Clustering, SVM, drone imaging, manual validation.
+                
+                            <strong>Conclusion:</strong> The system demonstrates feasibility in automating nitrogen assessment, with potential for cost reduction and environmental protection. Future work requires larger datasets and validation across more LCC categories.
+                        </span>
+                    </p>
+                </div>
+                <div class="skill-badges">
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">Machine Learning</div>
+                    <div class="skill-badge">SVM</div>
+                    <div class="skill-badge">K-Means Clustering</div>
+                    <div class="skill-badge">Drone Imaging</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
+                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE6209_Digital_Image_Processing_Report.pdf')">
+                        View Full Report
+                    </button>
+                </div>
             </div>
-            <div class="skill-badges">
-                <div class="skill-badge">Python</div>
-                <div class="skill-badge">Machine Learning</div>
-                <div class="skill-badge">SVM</div>
-                <div class="skill-badge">K-Means Clustering</div>
-                <div class="skill-badge">Drone Imaging</div>
-            </div>
-            <div class="card-actions">
-                <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
-                <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE6209_Digital_Image_Processing_Report.pdf')">
-                    View Full Report
-                </button>
-            </div>
+
             <!--Deep Learning Project Report-->
             <div class="project-card">
                 <h4>Semantic Segmentation of Drone Images Using Efficient-UNet-like Architecture</h4>
@@ -297,6 +299,8 @@ My work spans impactful projects like the DRIP climate risk platform and groundw
                   </button>
                 </div>
               </div>
+            
+            
               
 
 
