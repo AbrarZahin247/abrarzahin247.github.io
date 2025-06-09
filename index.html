@@ -9,6 +9,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            transition: background-color 0.6s ease; /* fade effect */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .sidebar {
@@ -48,6 +49,7 @@
             border-radius: 8px;
             margin: 16px;
             background: #fff;
+            z-index: 10;
         }
 
         .truncated-text {
@@ -56,6 +58,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             line-height: 1.6;
+            margin-top: 25px;
             margin-bottom: 12px;
             color: #444;
         }
@@ -160,43 +163,51 @@
         <!-- About Section -->
         <div id="about" class="content-section">
             <h2 class="mb-4 px-4 fw-bolder">About Me</h2>
-            
-            <!-- Personal Introduction -->
-            <div class="project-card mb-4">
-                <h4>Profile</h4>
-                <p style="text-align: justify;" class="lead word-wrap">
-                    With a strong academic foundation in Electrical & Electronic Engineering from Chittagong University of Engineering & Technology (CUET) and a Master’s degree from Bangladesh University of Engineering & Technology (BUET), I am passionate about harnessing the potential of computer vision and artificial intelligence (AI) for social impact. My journey began during my undergraduate studies, where I developed an embedded health monitoring system aimed at improving healthcare accessibility in underserved regions. This experience sparked my commitment to using technology to address critical societal challenges. 
-
-At BUET, my graduate research focused on advancing lightweight models for human activity detection, particularly for small-scale activities from elevated heights. I successfully developed a streamlined variant of the YOLOv5 model, optimized for detecting smaller objects with higher frames per second (FPS), achieving impressive accuracy and performance.
-
-By leveraging advanced technology, my vision is to create tools that empower individuals, improve lives, and foster greater equity. My focus is on creating impactful solutions that drive positive change and contribute to the well-being of my country. Through collaboration with like-minded professionals and organizations, I seek to ensure that technology is used as a powerful force for good, helping to mitigate challenges and advance meaningful societal progress.
-                </p>
-            </div>
-
-            <!-- Modified Education Section -->
-            <div class="mb-4">
-                <h4 class="px-4">Education</h4>
-                <div class="project-card">
-                    <h5>Master of Science in Electrical & Electronic Engineering</h5>
-                    <p>Bangladesh University of Engineering and Technology (BUET)<br>
-                    2022-2024</p>
+            <div class="row g-4 align-items-start">
+                <!-- Left column : About‑me text -->
+                <div class="col-lg-6 col-sm-12">
                     
-                    <h5>Bachelor of Science in Electrical & Electronic Engineering</h5>
-                    <p>Chittagong University of Engineering and Technology (CUET)<br>
-                    2015-2019</p>
+                    <div class="project-card mb-4">
+                        <h4>Profile</h4>
+                        <p class="lead" style="text-align: justify; word-wrap: break-word;">
+                            With the academic foundation in Electrical &amp; Electronic Engineering from Chittagong University of Engineering &amp; Technology (CUET) and a Master’s degree from Bangladesh University of Engineering &amp; Technology (BUET), I am passionate about harnessing the potential of computer vision and artificial intelligence (AI) for social impact. My journey began during my undergraduate studies, where I developed an embedded health‑monitoring system aimed at improving healthcare accessibility in underserved regions. This experience sparked my commitment to using technology to address critical societal challenges.<br><br>
+
+                            At BUET, my graduate research focused on advancing lightweight models for human‑activity detection, particularly for small‑scale activities from elevated heights. I successfully developed a streamlined variant of the YOLOv5 model, optimised for detecting smaller objects with higher frames per second (FPS), achieving impressive accuracy and performance.<br><br>
+
+                            By leveraging advanced technology, my vision is to create tools that empower individuals, improve lives, and foster greater equity. My focus is on creating impactful solutions that drive positive change and contribute to the well‑being of my country. Through collaboration with like‑minded professionals and organisations, I seek to ensure that technology is used as a powerful force for good, helping to mitigate challenges and advance meaningful societal progress.
+                        </p>
+                    </div>
+                </div>
+                <!-- Right column : Video player -->
+                <div class="col-lg-6 col-sm-12">
+                    
+                        <div class="project-card">
+                            <h6>Lightweight YOLOv5 Nano-Lite for Real-Time Action Detection on 8 GB Machines</h6>
+                            <video class="w-100" src="videos/21_fps_har_nano_lite.mp4" controls muted loop preload="none" loading="lazy" poster="video_tumbnail.PNG"></video>
+                        </div>
+
+                        <div class="project-card">
+                            <h6>YOLOv5 Nano for Real-Time Action Detection on 8 GB Machines</h6>
+                            <video class="w-100" src="videos/16_fps_har_nano.mp4" controls muted loop preload="none" loading="lazy" poster="video_tumbnail.PNG"></video>
+                        </div>
+                    
+                </div>
+                
+            </div>
+                <!-- Education Section -->
+            <div class="row mb-4">
+                <div class="col-lg-12">
+                    <h4 class="px-4">Education</h4>
+                    <div class="project-card">
+                        <h5>Master of Science in Electrical &amp; Electronic Engineering</h5>
+                        <p>Bangladesh University of Engineering and Technology (BUET)<br>2022 – 2024</p>
+
+                        <h5>Bachelor of Science in Electrical &amp; Electronic Engineering</h5>
+                        <p>Chittagong University of Engineering and Technology (CUET)<br>2015 – 2019</p>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="mb-4">
-                <h4 class="px-4">Contact</h4>
-                <div class="project-card">
-                    <p>📧 abrar.bd27@gmail.com</p>
-                
-                    <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-            </div> -->
-            <!-- Rest of the sections (Skills, Awards) remain unchanged -->
+
         </div>
         <!-- Works Section -->
         <div id="works" class="content-section" style="display: none;">
@@ -320,11 +331,48 @@ By leveraging advanced technology, my vision is to create tools that empower ind
         <div id="research" class="content-section" style="display: none;">
             <h2 class="mb-4 px-4 fw-bolder">My Research</h2>
             <div class="project-card">
+                <h4>Human Activity Recognition with Lightweight YOLOv5 Model</h4>
+                <div class="description-container">
+                    <p class="truncated-text">
+                        In this research I present <strong>YOLOv5 nano-lite</strong>, a lightweight model that recognises multiple human actions in real time on edge devices such as the Raspberry Pi. Nano-lite delivers higher frame rates than the standard YOLOv5 nano, and—when trained with our PWPR-SFGKD pipeline—achieves markedly better accuracy than a conventionally trained model. …
+
+                    <span class="full-text" style="display: none;">
+                        For my M.Sc. thesis I aimed to prove that an object detector can be both smaller and more accurate on low-power hardware. I began by streamlining the standard YOLOv5 nano into YOLOv5 nano-lite: by removing the medium- and large-object heads and one bottleneck layer, I reduced the network to 0.9 MB and 2.8 GFLOPs. Despite this aggressive trim, YOLOv5 nano-lite lifted baseline accuracy from 0.643 → 0.652 mAP@50, achieved roughly 2 FPS on a Raspberry Pi 4B+—already faster than the full YOLOv5 nano—and ran about 5 FPS faster than YOLOv5 nano on my personal laptop, confirming its speed advantage on both edge and desktop-class hardware.
+
+                        To push accuracy further, I developed PWPR-SFGKD, a three-stage training pipeline that:
+                        </br>
+                        </br>
+                        • pre-trains the compact network for 10 epochs;  
+                        </br>
+                        • prunes 80 % of the lowest-magnitude weights to “reset” the model around its most useful filters;
+                        </br>
+                        • re-trains for 40 epochs while distilling only the teacher network’s foreground feature maps.  
+                        </br>
+                        </br>
+
+                        This technique boosted YOLOv5 nano from 0.643 → 0.709 mAP@50 and raised the pruned YOLOv5 nano-lite to 0.661 mAP@50, all without exceeding 4 GB of GPU memory during training or slowing inference on edge devices. The study demonstrates that careful architectural trimming, targeted magnitude pruning, and focused knowledge distillation can yield a detector that is both lightweight and high-accuracy—ideal for resource-constrained platforms such as drones or embedded search-and-rescue cameras.
+                    </span>
+
+                    </p>
+                </div>
+                <div class="skill-badges">
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">Deep Learning</div>
+                    <div class="skill-badge">YOLOv5</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
+                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf')">
+                        View Full Report
+                    </button>
+                </div>
+            </div>
+            <!-- <div class="project-card">
                 <h4>Lightweight Human Activity Recognition</h4>
                 <p>Developed PWPR-SFGKD technique and YOLOv5n-lite model</p>
                 <div class="skill-badge">Computer Vision</div>
                 <div class="skill-badge">Deep Learning</div>
-            </div>
+            </div> -->
 
             <div class="project-card">
                 <h4>Groundwater Level Forecasting</h4>
@@ -425,6 +473,27 @@ By leveraging advanced technology, my vision is to create tools that empower ind
                 pdfFrame.src = '';
             });
         }
+
+        //=== background color mouse move change
+        const colours = [
+        "#d3d3d3", // gray (lightgray)
+        "#c0c0c0", // silver
+        "#ffffff" // white
+        ];
+        let index = 0;
+
+        let lastChange = 0;
+        const delay = 500; // ms between updates
+
+        document.addEventListener("mousemove", (e) => {
+        const now = Date.now();
+        if (now - lastChange < delay) return; // ignore events too close together
+        lastChange = now;
+
+        // Select the next colour in the array
+        index = (index + 1) % colours.length;
+        document.body.style.backgroundColor = colours[index];
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
