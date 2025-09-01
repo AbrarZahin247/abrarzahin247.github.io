@@ -1,500 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Md. Abrar Zahin - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            transition: background-color 0.6s ease; /* fade effect */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .sidebar {
-            background-color: #fff;
-            border-right: 1px solid #dee2e6;
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-        }
-        .main-content {
-            margin-left: 280px;
-            padding: 2rem;
-        }
-        .right-sidebar {
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 300px;
-            padding: 2rem;
-            background-color: #fff;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .nav-link {
-            padding: 0.75rem 1.5rem;
-            color: #495057;
-        }
-        .nav-link.active {
-            background-color: #e9ecef;
-            font-weight: 500;
-        }
-        .project-card {
-            /* max-width: 600px; */
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin: 16px;
-            background: #fff;
-            z-index: 10;
-        }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favico.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="sidebar" style="width: 280px">
+      <div class="sidebar-content text-center p-4">
+        <div class="d-flex justify-content-center">
+            <img
+          src="profile_pic.jpg"
+          alt="Profile"
+          class="rounded-circle mb-3"
+          style="width: 140px"
+        />
+        </div>
+        
 
-        .truncated-text {
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-height: 1.6;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            color: #444;
-        }
+        <h4 class="fw-bold mb-1">Md. Abrar Zahin</h4>
+        <p class="text-muted tagline mb-4">AI & Computer Vision Engineer</p>
 
-        .full-text {
-            display: block;
-            margin-top: 8px;
-        }
+        <div class="contact-links mb-4">
+          <a
+            href="mailto:abrar.bd27@gmail.com"
+            class="contact-icon"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/abrarzahin2021/"
+            target="_blank"
+            class="contact-icon"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
 
-        .full-text strong {
-            color: #2c3e50;
-            display: block;
-            margin-top: 12px;
-        }
-
-        .skill-badges {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 16px 0;
-        }
-
-        .skill-badge {
-            background: #e8f4ff;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #2c3e50;
-            border: 1px solid #cde0f5;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-top: 12px;
-        }
-
-        .toggle-btn {
-            background: none;
-            border: none;
-            color: #2980b9;
-            padding: 6px 12px;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .toggle-btn:hover {
-            color: #1a5276;
-            text-decoration: underline;
-        }
-        .pdf-modal iframe {
-            width: 100%;
-            height: 80vh;
-            border: none;
-        }
-    </style>
-    <link rel="icon" href="favico.ico" type="image/x-icon">
-</head>
-<body>
-    <!-- Left Navigation -->
-    <div class="sidebar" style="width: 280px;">
-        <div class="px-1 py-3">
-            <div class="text-center">
-                <img src="profile.jpeg" alt="Profile" class="rounded-circle mb-3" style="width: 150px;">
-                <!-- <div class="mb-4">
-                    <a href="CV_Md.Abrar_Zahin.pdf" download class="btn btn-primary mb-3">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                    <iframe src="CV_Md.Abrar_Zahin.pdf" width="100%" height="400px"></iframe>
-                </div> -->
-            </div>
-
-            <h3 class="mx-2 fw-bolder">Md. Abrar Zahin</h3>
-            <div class="p-2 pt-0 mb-4" >
-                <p><strong>Email:</strong> abrar.bd27@gmail.com</p>
-                
-            <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="btn btn-primary">
-                <i class="fab fa-linkedin"></i> LinkedIn
+        <ul class="nav flex-column text-start">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="#about"
+              onclick="showSection('about', event)"
+            >
+              <i class="fas fa-user-circle fa-fw me-2"></i>About Me
             </a>
-            </div>
-            
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#about" onclick="showSection('about')">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#works" onclick="showSection('works')">My Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#research" onclick="showSection('research')">My Research</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a>
-                </li> -->
-            </ul>
-        </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#works"
+              onclick="showSection('works', event)"
+            >
+              <i class="fas fa-briefcase fa-fw me-2"></i>My Works
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#research"
+              onclick="showSection('research', event)"
+            >
+              <i class="fas fa-flask fa-fw me-2"></i>My Research
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
-        <!-- About Section -->
-        <div id="about" class="content-section">
-            <h2 class="mb-4 px-4 fw-bolder">About Me</h2>
-            <div class="row g-4 align-items-start">
-                <!-- Left column : About‑me text -->
-                <div class="col-lg-6 col-sm-12">
-                    
-                    <div class="project-card mb-4">
-                        <h4>Profile</h4>
-                        <p class="lead" style="text-align: justify; word-wrap: break-word;">
-                            With the academic foundation in Electrical &amp; Electronic Engineering from Chittagong University of Engineering &amp; Technology (CUET) and a Master’s degree from Bangladesh University of Engineering &amp; Technology (BUET), I am passionate about harnessing the potential of computer vision and artificial intelligence (AI) for social impact. My journey began during my undergraduate studies, where I developed an embedded health‑monitoring system aimed at improving healthcare accessibility in underserved regions. This experience sparked my commitment to using technology to address critical societal challenges.<br><br>
+      <div id="about" class="content-section">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7 col-sm-12">
+            <div class="profile-intro">
+              <h1 class="fw-bolder">AI & Computer Vision Engineer</h1>
+              <p class="lead text-muted mb-4">
+                Specializing in building and deploying efficient, user-centric
+                AI solutions from cloud to edge.
+              </p>
 
-                            At BUET, my graduate research focused on advancing lightweight models for human‑activity detection, particularly for small‑scale activities from elevated heights. I successfully developed a streamlined variant of the YOLOv5 model, optimised for detecting smaller objects with higher frames per second (FPS), achieving impressive accuracy and performance.<br><br>
+              <p>
+                With an academic foundation in Electrical & Electronic
+                Engineering from CUET and a Master’s degree from BUET, I am
+                passionate about harnessing the potential of computer vision and
+                AI for social impact. My journey began during my undergraduate
+                studies, where I developed an embedded health‑monitoring system
+                aimed at improving healthcare accessibility in underserved
+                regions.
+              </p>
 
-                            By leveraging advanced technology, my vision is to create tools that empower individuals, improve lives, and foster greater equity. My focus is on creating impactful solutions that drive positive change and contribute to the well‑being of my country. Through collaboration with like‑minded professionals and organisations, I seek to ensure that technology is used as a powerful force for good, helping to mitigate challenges and advance meaningful societal progress.
-                        </p>
-                    </div>
-                </div>
-                <!-- Right column : Video player -->
-                <div class="col-lg-6 col-sm-12">
-                    
-                        <div class="project-card">
-                            <h6>Lightweight YOLOv5 Nano-Lite for Real-Time Action Detection on 8 GB Machines</h6>
-                            <video class="w-100" src="videos/21_fps_har_nano_lite.mp4" controls muted loop preload="none" loading="lazy" poster="video_tumbnail.PNG"></video>
-                        </div>
+              <p>
+                My graduate research at BUET focused on advancing lightweight
+                models for human activity detection. I successfully developed a
+                streamlined variant of the YOLOv5 model, optimized for detecting
+                smaller objects with higher frames per second (FPS) and
+                achieving impressive accuracy and performance on
+                resource-constrained devices.
+              </p>
 
-                        <div class="project-card">
-                            <h6>YOLOv5 Nano for Real-Time Action Detection on 8 GB Machines</h6>
-                            <video class="w-100" src="videos/16_fps_har_nano.mp4" controls muted loop preload="none" loading="lazy" poster="video_tumbnail.PNG"></video>
-                        </div>
-                    
-                </div>
-                
+              <p>
+                My vision is to create tools that empower individuals and
+                improve lives. I am focused on building impactful solutions that
+                drive positive change and contribute to meaningful societal
+                progress.
+              </p>
             </div>
-                <!-- Education Section -->
-            <div class="row mb-4">
-                <div class="col-lg-12">
-                    <h4 class="px-4">Education</h4>
-                    <div class="project-card">
-                        <h5>Master of Science in Electrical &amp; Electronic Engineering</h5>
-                        <p>Bangladesh University of Engineering and Technology (BUET)<br>2022 – 2024</p>
-
-                        <h5>Bachelor of Science in Electrical &amp; Electronic Engineering</h5>
-                        <p>Chittagong University of Engineering and Technology (CUET)<br>2015 – 2019</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-5 col-sm-12">
+            <div class="video-card mb-4">
+              <h6 class="video-title">YOLOv5 Nano-Lite (Optimized)</h6>
+              <video
+                class="w-100"
+                src="videos/21_fps_har_nano_lite.mp4"
+                controls
+                muted
+                loop
+                preload="metadata"
+                poster="video_tumbnail.PNG"
+              ></video>
             </div>
-
+            <div class="video-card">
+              <h6 class="video-title">YOLOv5 Nano (Baseline)</h6>
+              <video
+                class="w-100"
+                src="videos/16_fps_har_nano.mp4"
+                controls
+                muted
+                loop
+                preload="metadata"
+                poster="video_tumbnail.PNG"
+              ></video>
+            </div>
+          </div>
         </div>
-        <!-- Works Section -->
-        <div id="works" class="content-section" style="display: none;">
-            <h2 class="mb-4 px-4 fw-bolder">My Works</h2>
-            <!--project about Machine Learning Project-->
-            <div class="project-card">
-                <h4>Movie Recommendation System using Collaborative Filtering</h4>
-                <div class="description-container">
-                    <p class="truncated-text">
-                        Developed a movie recommendation system implementing two collaborative filtering approaches: 
-                        Matrix Factorization and GridSearchCV-optimized SVD. The system predicts user preferences 
-                        based on historical ratings from MovieLens data, employing advanced machine learning techniques...
-                        <span class="full-text" style="display: none;">
-                            to optimize recommendations. The first approach built a user-movie rating matrix from ratings.csv,
-                            factorized into latent feature matrices (U and V) using gradient descent with regularization.
-                            Hyperparameter analysis revealed optimal performance at lower feature dimensions (K=2) with
-                            60 iterations balancing accuracy and overfitting risks.
-                            
-                            The second approach leveraged scikit-surprise's GridSearchCV to optimize SVD parameters
-                            (n_epochs=10, lr_all=0.005, reg_all=0.4). Evaluation using genre-based F1 scores showed
-                            the custom matrix factorization achieved scores >0.5 for all users, with 60% of cases
-                            exceeding 0.66 (e.g., User 311: 0.84). 
-                            
-                            <strong>Key Findings:</strong> Custom implementation matched library performance while
-                            providing deeper algorithmic understanding. Matrix factorization required careful balance
-                            between computational cost (O(n²)) and accuracy, while library SVD offered efficient
-                            hyperparameter tuning.
-                            
-                            <strong>Tools:</strong> Python, NumPy, Pandas, Matplotlib, scikit-surprise
-                            <strong>Challenges:</strong> Addressed matrix sparsity through dimensionality reduction
-                            and controlled iterations
-                            <strong>Conclusion:</strong> Both methods effectively predicted preferences, with potential
-                            for hybrid future implementations combining interpretability and optimization efficiency.
-                        </span>
-                    </p>
-                </div>
-                <div class="skill-badges">
-                    <div class="skill-badge">Python</div>
-                    <div class="skill-badge">Machine Learning</div>
-                    <div class="skill-badge">Matrix Factorization</div>
-                    <div class="skill-badge">SVD</div>
-                    <div class="skill-badge">NumPy</div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
-                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE_6608_Movie_Recommendation_System_Report.pdf')">
-                        View Full Report
-                    </button>
-                </div>
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h4 class="px-4">Education</h4>
+            <div class="education-section">
+              <div class="education-item">
+                <h5>
+                  Master of Science in Electrical & Electronic Engineering
+                </h5>
+                <p>
+                  Bangladesh University of Engineering and Technology (BUET) |
+                  2022 – 2024
+                </p>
+              </div>
+              <div class="education-item">
+                <h5>
+                  Bachelor of Science in Electrical & Electronic Engineering
+                </h5>
+                <p>
+                  Chittagong University of Engineering and Technology (CUET) |
+                  2015 – 2019
+                </p>
+              </div>
             </div>
-            <!--LCC Project-->
-                <div class="project-card"> 
-                    <h4>Leaf Color Chart (LCC) Prediction for Rice Fields Using Drone Imagery</h4> 
-                    <div class="description-container">
-                        <p class="truncated-text"> Developed an automated system to predict LCC readings for nitrogen assessment in rice fields using drone imagery, K-Means clustering, and SVM classification. The solution reduces manual LCC dependency, enabling farmers to optimize urea usage, minimize environmental harm, and cut costs. Dominant RGB values from drone images are extracted via K-Means clustering and classified into LCC readings using SVM. <span class="full-text" style="display: none;"> <strong>Methodology:</strong> - Captured drone imagery of fields with LCC readings 2 and 3 for training (6 images) and testing (8 images). - Applied <strong>K-Means clustering</strong> to group RGB pixels into 2–5 clusters, extracting the 4 most frequent RGB values as features (Table I). - Trained four SVM models using 2–5 RGB values. Models with 4–5 clusters achieved 100% accuracy for LCC-2 and 87.5% accuracy for LCC-3 (Table II).
-
-                            <strong>Performance:</strong> 
-                            - High accuracy attributed to manual curation of diverse test images and dominant RGB feature selection.
-                            - Small dataset (6 training, 8 testing images) may inflate accuracy; broader validation needed.
-                
-                            <strong>Impact:</strong> 
-                            - Scalable solution for large fields, eliminating farmer training in LCC usage.
-                            - Addresses environmental risks: excessive urea causes soil acidity, water pollution, and ozone depletion.
-                
-                            <strong>Challenges:</strong> 
-                            - Farmers’ limited LCC adoption due to lack of access/training.
-                            - Manual image curation required to ensure color variation.
-                            - SVM outperformed simpler models due to complex RGB data distributions.
-                
-                            <strong>Tools:</strong> Python, K-Means Clustering, SVM, drone imaging, manual validation.
-                
-                            <strong>Conclusion:</strong> The system demonstrates feasibility in automating nitrogen assessment, with potential for cost reduction and environmental protection. Future work requires larger datasets and validation across more LCC categories.
-                            </span>
-                        </p>
-                    </div>
-                    <div class="skill-badges">
-                        <div class="skill-badge">Python</div>
-                        <div class="skill-badge">Machine Learning</div>
-                        <div class="skill-badge">SVM</div>
-                        <div class="skill-badge">K-Means Clustering</div>
-                        <div class="skill-badge">Drone Imaging</div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
-                        <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE6209_Digital_Image_Processing_Report.pdf')">
-                            View Full Report
-                        </button>
-                    </div>
-                </div>
-
-            <!--Deep Learning Project Report-->
-            <div class="project-card">
-                <h4>Semantic Segmentation of Drone Images Using Efficient-UNet-like Architecture</h4>
-                <div class="description-container">
-                    <p class="truncated-text">
-                        Developed a semantic segmentation model for drone imagery analysis, using an Efficient-UNet-like architecture to segment aerial images into 17 classes. The system was trained on the AI Crowd Drone Image Segmentation Challenge dataset, which includes 1,786 grayscale images (1550x2200px) and corresponding masks. The goal was to achieve a mean Intersection over Union (mIOU) score exceeding the competition baseline of 0.61.
-                        <span class="full-text" style="display: none;">
-                        <br><br><strong>Methodology & Results:</strong> The dataset was divided into 75% training, 10% validation, and 15% test sets. Images were resized, normalized, and converted to tensors, while masks were one-hot encoded. A hybrid model using EfficientNetB0 as the encoder and a UNet-like decoder was tested. The best-performing model achieved a validation mIOU of 0.517 and a test score of 0.513 after 20 epochs. Despite preprocessing steps like resizing and optimization with Dice loss, the model faced challenges such as spatial information loss from downsampling and limited performance due to the small dataset. Future work includes exploring transformers, GANs, and patch-based training to improve accuracy.
-                        </span>
-                    </p>
-                </div>
-                <div class="skill-badges">
-                    <div class="skill-badge">Python</div>
-                    <div class="skill-badge">Deep Learning</div>
-                    <div class="skill-badge">Semantic Segmentation</div>
-                    <div class="skill-badge">EfficientNet</div>
-                    <div class="skill-badge">UNet</div>
-                    <div class="skill-badge">PyTorch</div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
-                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/EEE_6609_Deep_Learning_Final_Report.pdf')">
-                        View Full Report
-                    </button>
-                </div>
-            </div>
-            <!--End of Work section-->
+          </div>
         </div>
+      </div>
 
-        <!-- Research Section -->
-        <div id="research" class="content-section" style="display: none;">
-            <h2 class="mb-4 px-4 fw-bolder">My Research</h2>
-            <div class="project-card">
-                <h4>Human Activity Recognition with Lightweight YOLOv5 Model</h4>
-                <div class="description-container">
-                    <p class="truncated-text">
-                        In this research I present <strong>YOLOv5 nano-lite</strong>, a lightweight model that recognises multiple human actions in real time on edge devices such as the Raspberry Pi. Nano-lite delivers higher frame rates than the standard YOLOv5 nano, and—when trained with our PWPR-SFGKD pipeline—achieves markedly better accuracy than a conventionally trained model. …
+      <div id="works" class="content-section" style="display: none"></div>
 
-                    <span class="full-text" style="display: none;">
-                        For my M.Sc. thesis I aimed to prove that an object detector can be both smaller and more accurate on low-power hardware. I began by streamlining the standard YOLOv5 nano into YOLOv5 nano-lite: by removing the medium- and large-object heads and one bottleneck layer, I reduced the network to 0.9 MB and 2.8 GFLOPs. Despite this aggressive trim, YOLOv5 nano-lite lifted baseline accuracy from 0.643 → 0.652 mAP@50, achieved roughly 2 FPS on a Raspberry Pi 4B+—already faster than the full YOLOv5 nano—and ran about 5 FPS faster than YOLOv5 nano on my personal laptop, confirming its speed advantage on both edge and desktop-class hardware.
-
-                        To push accuracy further, I developed PWPR-SFGKD, a three-stage training pipeline that:
-                        </br>
-                        </br>
-                        • pre-trains the compact network for 10 epochs;  
-                        </br>
-                        • prunes 80 % of the lowest-magnitude weights to “reset” the model around its most useful filters;
-                        </br>
-                        • re-trains for 40 epochs while distilling only the teacher network’s foreground feature maps.  
-                        </br>
-                        </br>
-
-                        This technique boosted YOLOv5 nano from 0.643 → 0.709 mAP@50 and raised the pruned YOLOv5 nano-lite to 0.661 mAP@50, all without exceeding 4 GB of GPU memory during training or slowing inference on edge devices. The study demonstrates that careful architectural trimming, targeted magnitude pruning, and focused knowledge distillation can yield a detector that is both lightweight and high-accuracy—ideal for resource-constrained platforms such as drones or embedded search-and-rescue cameras.
-                    </span>
-
-                    </p>
-                </div>
-                <div class="skill-badges">
-                    <div class="skill-badge">Python</div>
-                    <div class="skill-badge">Deep Learning</div>
-                    <div class="skill-badge">YOLOv5</div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn btn-link toggle-btn" onclick="toggleDescription(this)">Show more</button>
-                    <button class="btn btn-link m-4" onclick="openPdfModal('pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf')">
-                        View Full Report
-                    </button>
-                </div>
-            </div>
-            <!-- <div class="project-card">
-                <h4>Lightweight Human Activity Recognition</h4>
-                <p>Developed PWPR-SFGKD technique and YOLOv5n-lite model</p>
-                <div class="skill-badge">Computer Vision</div>
-                <div class="skill-badge">Deep Learning</div>
-            </div> -->
-
-            <div class="project-card">
-                <h4>Groundwater Level Forecasting</h4>
-                <p>Implemented GRU and LSTM models for water level prediction</p>
-                <div class="skill-badge">Time Series</div>
-                <div class="skill-badge">RNN</div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <!-- <div id="contact" class="content-section" style="display: none;">
-            <h2 class="mb-4">Contact</h2>
-            <div class="project-card">
-                <p>📧 abrar.bd27@gmail.com</p>
-                
-                <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                
-                <!-- <h5 class="mt-4">References</h5>
-                <ul>
-                    <li>Dr. Mohammad Ariful Haque (BUET)</li>
-                    <li>Dr. Muhammad Ahsan Ullah (CUET)</li>
-                </ul> -->
-            </div>
-        </div> -->
+      <div id="research" class="content-section" style="display: none"></div>
     </div>
 
-
-    <!-- PDF Modal -->     
     <div class="modal fade" id="pdfModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">View Pdf Document</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body pdf-modal">
-                    <iframe id="pdfFrame" title="PDF Document"></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">View PDF Document</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body pdf-modal">
+            <iframe id="pdfFrame" title="PDF Document"></iframe>
+          </div>
         </div>
+      </div>
     </div>
-                    
 
-    <script>
+    <div class="modal fade" id="projectDetailModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalProjectTitle">Project Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalProjectBody">
+            <img
+              src=""
+              alt="Project Image"
+              id="modalProjectImage"
+              class="img-fluid mb-3"
+            />
+            <div id="modalProjectDescription"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).style.display = 'block';
-            
-            // Update active class on nav items
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-
-        function toggleDescription(button) {
-            const container = button.closest('.project-card');
-            const fullText = container.querySelector('.full-text');
-            const truncated = container.querySelector('.truncated-text');
-            
-            if (fullText.style.display === 'none') {
-                fullText.style.display = 'inline';
-                truncated.style.display = 'block';
-                truncated.style.webkitLineClamp = 'unset';
-                button.textContent = 'Show less';
-                container.querySelector('.skill-badges').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                fullText.style.display = 'none';
-                truncated.style.display = '-webkit-box';
-                button.textContent = 'Show more';
-            }
-        }
-
-        // ============== dynamic pdf loader
-        function openPdfModal(pdfUrl) {
-            const pdfFrame = document.getElementById('pdfFrame');
-            const modal = new bootstrap.Modal(document.getElementById('pdfModal'));
-            
-            // Set PDF source
-            pdfFrame.src = pdfUrl;
-            
-            // Show modal
-            modal.show();
-            
-            // Clear PDF when modal closes
-            document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
-                pdfFrame.src = '';
-            });
-        }
-
-        //=== background color mouse move change
-        const colours = [
-        "#d3d3d3", // gray (lightgray)
-        "#c0c0c0", // silver
-        "#ffffff" // white
-        ];
-        let index = 0;
-
-        let lastChange = 0;
-        const delay = 500; // ms between updates
-
-        document.addEventListener("mousemove", (e) => {
-        const now = Date.now();
-        if (now - lastChange < delay) return; // ignore events too close together
-        lastChange = now;
-
-        // Select the next colour in the array
-        index = (index + 1) % colours.length;
-        document.body.style.backgroundColor = colours[index];
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
