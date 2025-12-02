@@ -1,26 +1,52 @@
-body {
-    background-color: #f8f9fa;
-    transition: background-color 0.6s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* --- GLOBAL VARIABLES & RESET --- */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --sidebar-width: 280px;
+    --bg-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --card-bg: #ffffff;
+    --transition-speed: 0.3s;
 }
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+/* --- SIDEBAR STYLING --- */
 .sidebar {
     background-color: #ffffff;
     border-right: 1px solid #e9ecef;
+    width: var(--sidebar-width);
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1050; /* Above main content */
+    transition: transform var(--transition-speed) ease-in-out;
 }
 
 .sidebar-content {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-y: auto; /* Allow scroll if sidebar is too short */
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .tagline {
     font-size: 0.95rem;
-    color: #6c757d;
+    color: var(--secondary-color);
 }
 
 .contact-links {
@@ -32,16 +58,14 @@ body {
 .contact-icon {
     font-size: 1.5rem;
     color: #495057;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .contact-icon:hover {
-    color: #0d6efd; /* Bootstrap primary blue */
+    color: var(--primary-color);
 }
 
-
-/* --- Navigation Link Styling --- */
-
+/* --- NAVIGATION LINKS --- */
 .nav-link {
     display: flex;
     align-items: center;
@@ -50,12 +74,14 @@ body {
     border-radius: 8px;
     margin-bottom: 0.25rem;
     font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .nav-link i {
     color: #6c757d;
-    transition: color 0.3s ease;
+    width: 24px; /* Fixed width for alignment */
+    transition: color 0.2s ease;
 }
 
 .nav-link:hover {
@@ -69,156 +95,241 @@ body {
 
 .nav-link.active {
     background-color: #eef5ff;
-    color: #0d6efd;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
 .nav-link.active i {
-    color: #0d6efd;
+    color: var(--primary-color);
 }
 
+/* --- MAIN CONTENT LAYOUT --- */
 .main-content {
-    margin-left: 280px;
-    padding: 2rem;
+    margin-left: var(--sidebar-width);
+    padding: 3rem;
+    min-height: 100vh;
+    transition: margin-left var(--transition-speed) ease-in-out;
 }
 
+/* --- MOBILE & RESPONSIVE TOGGLES --- */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1060; /* Higher than sidebar */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: none; /* Hidden on desktop */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    color: var(--text-color);
+}
 
-/* --- STYLES FOR ABOUT ME PAGE --- */
+/* Media Query for Tablets and Mobile (Bootstrap 'lg' breakpoint approx 991px) */
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
 
+    .sidebar {
+        transform: translateX(-100%); /* Hide off-screen by default */
+        box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0); /* Slide in */
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 5rem 1.5rem 2rem; /* Add top padding for the toggle button */
+    }
+}
+
+/* --- ABOUT ME SECTION --- */
 .profile-intro h1 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--text-color);
+    margin-bottom: 1rem;
 }
+
 .video-card {
     background: #fff;
     border: 1px solid #e9ecef;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
+
 .video-title {
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: #34495e;
 }
+
 .video-card video {
-    border-radius: 6px;
+    border-radius: 8px;
+    display: block;
 }
+
+/* Education Styles */
 .education-section {
     background: #fff;
     border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
+
 .education-item {
     padding: 1rem 0;
 }
+
 .education-item:not(:last-child) {
     border-bottom: 1px solid #f1f3f5;
 }
+
 .education-item h5 {
     font-weight: 600;
-}
-.education-item p {
-    margin: 0;
-    color: #6c757d;
+    color: var(--text-color);
 }
 
-
-/* --- STYLES FOR WORKS & RESEARCH PAGES --- */
-
-/* Grid container for the cards */
+/* --- WORKS & RESEARCH CARDS (Updated for Scalability) --- */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 2rem; /* Space between cards */
+    /* Responsive Grid: Cards will never be smaller than 300px, filling available space */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 2rem;
 }
+
 .project-card {
-    display: flex;
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    overflow: hidden;
+    border: none; /* Removed border for cleaner look */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-.project-image {
-    flex: 0 0 220px;
+    display: flex;
+    flex-direction: column; /* Stack Image top, Content bottom */
+    height: 100%; /* Make cards same height in grid */
     overflow: hidden;
 }
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    overflow: hidden;
+    position: relative;
+}
+
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
+
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
+
 .project-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 1; /* Pushes action buttons to the bottom */
 }
+
 .project-content h4 {
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
 }
+
+/* Updated truncated text to be cleaner */
 .truncated-text {
-    color: #555;
+    color: #666;
+    font-size: 0.95rem;
     line-height: 1.6;
-    -webkit-line-clamp: 3;
+    margin-bottom: 1rem;
     display: -webkit-box;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 1rem;
 }
+
+/* Skill Badges */
 .skill-badges {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
 }
+
 .skill-badge {
-    background: #eef5ff;
-    color: #0056b3;
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 5px 12px;
-    border-radius: 16px;
+    background: #f0f7ff;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
     border: 1px solid #dbe9ff;
 }
+
+/* Card Actions (Bottom Buttons) */
 .card-actions {
-    margin-top: auto;
+    margin-top: auto; /* Pushes to bottom */
     display: flex;
-    gap: 1rem;
+    justify-content: space-between; /* Spreads buttons apart */
     padding-top: 1rem;
     border-top: 1px solid #f0f0f0;
 }
+
 .toggle-btn, .pdf-btn {
     background: none;
     border: none;
-    color: #007bff;
     cursor: pointer;
     font-weight: 500;
-    padding: 0;
-}
-.toggle-btn:hover, .pdf-btn:hover {
-    text-decoration: underline;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.2s;
 }
 
-/* --- STYLES FOR MODALS --- */
+.toggle-btn {
+    color: var(--primary-color);
+}
 
-/* PDF Modal Iframe */
+.toggle-btn:hover {
+    background-color: #eef5ff;
+    text-decoration: none;
+}
+
+.pdf-btn {
+    color: #6c757d;
+}
+
+.pdf-btn:hover {
+    color: #333;
+    background-color: #f1f3f5;
+}
+
+/* --- MODALS --- */
+/* PDF Modal */
 .pdf-modal iframe {
     width: 100%;
     height: 80vh;
     border: none;
+    border-radius: 4px;
 }
 
 /* Project Detail Modal */
@@ -226,32 +337,76 @@ body {
     border-radius: 12px;
     border: none;
 }
+
 #projectDetailModal .modal-header {
     border-bottom: 1px solid #f0f0f0;
 }
+
 #projectDetailModal .modal-title {
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-color);
 }
+
 #modalProjectBody {
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    text-align: justify;
+    text-align: left; /* Better for reading than justify */
 }
+
 #modalProjectImage {
     border-radius: 8px;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.5rem;
+    width: 100%;
     max-height: 400px;
-    width: auto;
     object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
 #modalProjectDescription {
-    color: #333;
-    line-height: 1.7;
+    color: #444;
+    line-height: 1.8;
 }
+
+/* Style for Section Headers (My Approach, Key Results) */
+#modalProjectDescription h5 {
+    color: var(--text-color);
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-left: 4px solid var(--primary-color); /* Thicker blue bar */
+    padding-left: 12px;
+}
+
+/* Style for Inline Bold Text (React, Leaflet, etc.) */
 #modalProjectDescription strong {
     color: #2c3e50;
-    display: block;
-    margin-top: 1em;
+    font-weight: 600;
+    display: inline; /* Keeps it in the sentence */
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#modalProjectDescription ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.github-btn {
+    background-color: #24292e; /* GitHub Black */
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.github-btn:hover {
+    background-color: #000;
+    color: white;
 }

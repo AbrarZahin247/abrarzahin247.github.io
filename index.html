@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Md. Abrar Zahin - Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
     <title>Md. Abrar Zahin - Portfolio</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -16,65 +17,55 @@
     <link rel="icon" href="favico.ico" type="image/x-icon" />
   </head>
   <body>
-    <div class="sidebar" style="width: 280px">
+    
+    <button class="mobile-nav-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="sidebar" id="sidebar">
       <div class="sidebar-content text-center p-4">
         <div class="d-flex justify-content-center">
             <img
           src="profile_pic.jpg"
-          alt="Profile"
-          class="rounded-circle mb-3"
-          style="width: 140px"
+          alt="Md. Abrar Zahin"
+          class="rounded-circle mb-3 profile-img"
         />
         </div>
-        
 
         <h4 class="fw-bold mb-1">Md. Abrar Zahin</h4>
-        <p class="text-muted tagline mb-4">AI & Computer Vision Engineer</p>
+        <p class="text-muted tagline mb-4">Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis</p>
 
         <div class="contact-links mb-4">
-          <a
-            href="mailto:abrar.bd27@gmail.com"
-            class="contact-icon"
-            aria-label="Email"
-          >
+          <a href="mailto:abrar.bd27@gmail.com" class="contact-icon" aria-label="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a
-            href="https://www.linkedin.com/in/abrarzahin2021/"
-            target="_blank"
-            class="contact-icon"
-            aria-label="LinkedIn"
-          >
+          <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="contact-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" target="_blank" class="contact-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
           </a>
         </div>
 
         <ul class="nav flex-column text-start">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              href="#about"
-              onclick="showSection('about', event)"
-            >
+            <a class="nav-link active" href="#about" onclick="showSection('about', event)">
               <i class="fas fa-user-circle fa-fw me-2"></i>About Me
             </a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#works"
-              onclick="showSection('works', event)"
-            >
+            <a class="nav-link" href="#works" onclick="showSection('works', event)">
               <i class="fas fa-briefcase fa-fw me-2"></i>My Works
             </a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#research"
-              onclick="showSection('research', event)"
-            >
+            <a class="nav-link" href="#research" onclick="showSection('research', event)">
               <i class="fas fa-flask fa-fw me-2"></i>My Research
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#articles" onclick="showSection('articles', event)">
+              <i class="fas fa-newspaper fa-fw me-2"></i>Articles
             </a>
           </li>
         </ul>
@@ -82,11 +73,14 @@
     </div>
 
     <div class="main-content">
+      
       <div id="about" class="content-section">
         <div class="row g-4 align-items-start">
+          
           <div class="col-lg-7 col-sm-12">
             <div class="profile-intro">
-              <h1 class="fw-bolder">AI & Computer Vision Engineer</h1>
+              <span class="badge bg-primary mb-2">Open to Work</span>
+              <h1 class="fw-bolder">Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis</h1>
               <p class="lead text-muted mb-4">
                 Specializing in building and deploying efficient, user-centric
                 AI solutions from cloud to edge.
@@ -117,56 +111,47 @@
                 drive positive change and contribute to meaningful societal
                 progress.
               </p>
+              
+              <div class="d-flex gap-3 mt-4">
+                 <button class="btn btn-primary" onclick="showSection('works', event)">View Projects</button>
+                 <!-- <a href="#" class="btn btn-outline-dark">Download CV</a> -->
+              </div>
             </div>
           </div>
+
           <div class="col-lg-5 col-sm-12">
             <div class="video-card mb-4">
               <h6 class="video-title">YOLOv5 Nano-Lite (Optimized)</h6>
-              <video
-                class="w-100"
-                src="videos/21_fps_har_nano_lite.mp4"
-                controls
-                muted
-                loop
-                preload="metadata"
-                poster="video_tumbnail.PNG"
-              ></video>
+              <video class="w-100" src="videos/21_fps_har_nano_lite.mp4" controls muted loop poster="video_tumbnail.PNG"></video>
             </div>
             <div class="video-card">
               <h6 class="video-title">YOLOv5 Nano (Baseline)</h6>
-              <video
-                class="w-100"
-                src="videos/16_fps_har_nano.mp4"
-                controls
-                muted
-                loop
-                preload="metadata"
-                poster="video_tumbnail.PNG"
-              ></video>
+              <video class="w-100" src="videos/16_fps_har_nano.mp4" controls muted loop poster="video_tumbnail.PNG"></video>
             </div>
           </div>
         </div>
+        
         <div class="row mt-5">
           <div class="col-lg-12">
-            <h4 class="px-4">Education</h4>
+            <h4 class="px-0 mb-3 border-bottom pb-2">Education</h4>
             <div class="education-section">
               <div class="education-item">
-                <h5>
-                  Master of Science in Electrical & Electronic Engineering
-                </h5>
-                <p>
-                  Bangladesh University of Engineering and Technology (BUET) |
-                  2022 – 2024
-                </p>
+                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                    <div>
+                        <h5 class="mb-1">M.Sc. in Electrical & Electronic Engineering</h5>
+                        <p class="text-primary fw-medium">Bangladesh University of Engineering and Technology (BUET)</p>
+                    </div>
+                    <span class="badge bg-light text-dark border">2022 – 2024</span>
+                </div>
               </div>
-              <div class="education-item">
-                <h5>
-                  Bachelor of Science in Electrical & Electronic Engineering
-                </h5>
-                <p>
-                  Chittagong University of Engineering and Technology (CUET) |
-                  2015 – 2019
-                </p>
+              <div class="education-item mt-3">
+                 <div class="d-flex justify-content-between align-items-start flex-wrap">
+                    <div>
+                        <h5 class="mb-1">B.Sc. in Electrical & Electronic Engineering</h5>
+                        <p class="text-primary fw-medium">Chittagong University of Engineering and Technology (CUET)</p>
+                    </div>
+                    <span class="badge bg-light text-dark border">2015 – 2019</span>
+                </div>
               </div>
             </div>
           </div>
@@ -174,20 +159,17 @@
       </div>
 
       <div id="works" class="content-section" style="display: none"></div>
-
+      
       <div id="research" class="content-section" style="display: none"></div>
+      <div id="articles" class="content-section" style="display: none"></div>
     </div>
 
     <div class="modal fade" id="pdfModal" tabindex="-1">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">View PDF Document</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+            <h5 class="modal-title">Document Viewer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body pdf-modal">
             <iframe id="pdfFrame" title="PDF Document"></iframe>
@@ -197,23 +179,14 @@
     </div>
 
     <div class="modal fade" id="projectDetailModal" tabindex="-1">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalProjectTitle">Project Details</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+            <h5 class="modal-title" id="modalProjectTitle"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
-          <div class="modal-body" id="modalProjectBody">
-            <img
-              src=""
-              alt="Project Image"
-              id="modalProjectImage"
-              class="img-fluid mb-3"
-            />
+          <div class="modal-body">
+            <img src="" alt="" id="modalProjectImage" class="img-fluid rounded mb-3 w-100" />
             <div id="modalProjectDescription"></div>
           </div>
         </div>
