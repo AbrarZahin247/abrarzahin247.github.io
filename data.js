@@ -132,6 +132,33 @@ const myResearch = [
     pdfUrl: "pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf",
   },
   {
+    title: "A Lightweight YOLO for Human Action Recognition on Resource-Constrained Devices",
+    status: "Completed",
+    imageUrl: "images/nano_lite_yolo_architecture.png",
+    shortDescription: "IEEE paper (with Prof. Mohammad Ariful Haque, BUET) introducing YOLOv5 Nano-Lite plus two weight-redistribution training strategies, LMWP and HMWH, evaluated on 12-class aerial human-action detection.",
+    fullDescription: `
+      <p>A paper co-authored with my thesis advisor, Prof. Mohammad Ariful Haque (BUET), formalizing and extending the Nano-Lite work with two new training strategies aimed at squeezing more accuracy out of lightweight detectors without growing them.</p>
+
+      <strong>Contributions:</strong>
+      <ul>
+        <li><strong>YOLOv5 Nano-Lite:</strong> a trimmed backbone/neck (removing the final ConvBnSiLU+C3 block and simplifying the neck to a single 80&times;80 detection scale) that cuts compute from 4.2 to 2.7 GFLOPs (-35.71%) while improving conventional-training mAP@50 by 7.28% over stock YOLOv5 Nano.</li>
+        <li><strong>Low-Magnitude Weights Pruning (LMWP):</strong> zero out the lowest-magnitude weights after initial training, then fine-tune &mdash; forces the optimizer into a different weight distribution and a better local minimum.</li>
+        <li><strong>High-Magnitude Weights Halving (HMWH):</strong> halve the highest-magnitude weights instead of zeroing them, to reduce a small set of dominant connections crowding out other useful ones.</li>
+      </ul>
+
+      <strong>Key Results (UAV-Action, 12 security-relevant action classes, 20,145 images):</strong>
+      <ul>
+        <li>LMWP raised YOLOv5 Nano's mAP@50 by up to 9.26% (80% pruning ratio); HMWH raised it by up to 7.89% (10% halving ratio) &mdash; low-magnitude weights tolerate aggressive pruning, high-magnitude weights need a much lighter touch.</li>
+        <li>Nano-Lite itself benefited most from plain conventional training; LMWP/HMWH gave smaller, sometimes negative gains on Nano-Lite specifically, and the paper is explicit about this rather than glossing over it.</li>
+        <li>On real hardware (Raspberry Pi 4B+ and an i5 laptop), Nano-Lite ran ~28% faster than standard Nano at the same 640px input size.</li>
+      </ul>
+
+      <strong>Tech Stack:</strong> Python, PyTorch, YOLOv5, Weight Pruning, Model Compression, Edge AI
+    `,
+    skills: ["Deep Learning", "YOLOv5", "Model Pruning", "Edge AI", "Research"],
+    pdfUrl: "pdfs/A_Lightweight_YOLO_for_HAR_IEEE_Paper.pdf",
+  },
+  {
     title: "Groundwater Level Forecasting",
     status: "Completed",
     imageUrl: "images/water_level_forecasting.PNG",
@@ -299,7 +326,7 @@ const myArticles = [
 const profileStats = [
   { icon: "fas fa-graduation-cap", value: "2+", label: "Years Grad Research" },
   { icon: "fas fa-project-diagram", value: "8+", label: "Projects Delivered" },
-  { icon: "fas fa-file-alt", value: "5", label: "Publications" },
+  { icon: "fas fa-file-alt", value: "6", label: "Publications" },
   { icon: "fas fa-microchip", value: "0.9MB", label: "Smallest Model Built" }
 ];
 
