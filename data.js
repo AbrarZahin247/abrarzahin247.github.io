@@ -107,6 +107,7 @@ const myWorks = [
 const myResearch = [
   {
     title: "Lightweight Human Activity Recognition",
+    status: "Completed",
     imageUrl: "images/thesis_pics.PNG",
     shortDescription: "Designed and trained YOLOv5 nano-lite, a highly efficient model for real-time human action recognition on edge devices like Raspberry Pi.",
     fullDescription: `
@@ -132,6 +133,7 @@ const myResearch = [
   },
   {
     title: "Groundwater Level Forecasting",
+    status: "Completed",
     imageUrl: "images/water_level_forecasting.PNG",
     shortDescription: "Implemented and compared GRU and LSTM models for time-series prediction of groundwater levels for environmental resource management.",
     fullDescription: `
@@ -156,6 +158,7 @@ const myResearch = [
   },
   {
     title: "Zero-Inflated Rainfall Forecasting",
+    status: "Completed",
     imageUrl: "images/zeroinflated_rainfall.png", // Ensure you add a relevant image to your folder
     shortDescription: "Developed 'ZARQ-Net', a specialized deep learning architecture with a custom composite loss function (ZILoss) to accurately forecast rainfall in sparse, zero-dominated datasets.",
     fullDescription: `
@@ -178,6 +181,61 @@ const myResearch = [
     `,
     skills: ["Deep Learning", "Time-Series", "PyTorch", "Research"],
     pdfUrl: "pdfs/v2_BMD_RainFall_IEEE_Template.pdf",
+  },
+  {
+    title: "Probabilistic Groundwater-Level Forecasting (Extended Study)",
+    status: "Ongoing",
+    imageUrl: "images/groundwater_v4_pipeline.svg",
+    shortDescription: "A follow-on to the GRU/LSTM groundwater work: a 34-model benchmark plus a rigorous ablation study converging on a PatchTST variant with a Student-t distributional head for robust uncertainty on extreme readings.",
+    fullDescription: `
+      <p>A deeper, extended follow-up to the earlier GRU/LSTM groundwater forecasting study, run on multi-year BADC groundwater-level data (2014-2020). Instead of comparing two architectures, this phase benchmarks a much wider model zoo and uses controlled, single-variable ablations to isolate exactly which design choices actually help.</p>
+
+      <strong>Approach So Far:</strong>
+      <ul>
+        <li>Benchmarked 34 models end-to-end — including XGBoost, Random Forest, LSTM, GRU, CNN-GRU, ProbLSTM, Transformer, SARIMA, TiDE, TimesNet, PINN-GRU, STGNN, and five PatchTST variants (v1-v5) — logged across multiple seeds for mean ± std comparison.</li>
+        <li>Ran a component-level ablation matrix (A0-A8) that changes exactly one architectural choice at a time (e.g. anchor formulation, RevIN normalization, location embedding) against a fixed baseline, to separate real gains from run-to-run noise.</li>
+        <li>Identified and fixed a scale-mismatch bug in the lag-1 anchor calculation that was silently suppressing performance across specialist model versions.</li>
+        <li>Iterated a "specialist" PatchTST line (v1 through v10) built on Robust IQR RevIN instance normalization, patch embedding, and a transformer covariate encoder.</li>
+      </ul>
+
+      <strong>Current Focus:</strong>
+      <ul>
+        <li>Validating a Student-t distributional output head (v9), swapped in for the prior Gaussian head, specifically to handle heavy-tailed extreme readings in the 2019-2020 test set without distorting uncertainty estimates for normal readings — it improves on its own Gaussian-head baseline on every tracked metric (RMSE, MAE, R², CRPS).</li>
+        <li>Being honest about where it still trails: plain PatchTST and TimesNet edge it out slightly on raw RMSE/MAE, so the current write-up frames v9's contribution precisely (robustness on outlier-heavy bands) rather than claiming a blanket state-of-the-art win.</li>
+        <li>Writing up the model-comparison and ablation tables for the results section of the paper.</li>
+      </ul>
+
+      <strong>Tech Stack:</strong> Python, PyTorch, PatchTST, Transformers, XGBoost, SARIMA, TimesNet, TiDE, uncertainty-aware (Student-t) forecasting
+    `,
+    skills: ["Time-Series", "PatchTST", "Uncertainty Quantification", "PyTorch", "Research"],
+    pdfUrl: null,
+  },
+  {
+    title: "Offline Signature Forgery Detection",
+    status: "Ongoing",
+    imageUrl: "images/signature_forgery_research.svg",
+    shortDescription: "Writer-independent signature verification on a 14K-image Kaggle dataset, progressing from a Siamese baseline to a CurricularFace metric-learning model, now unifying prior experiments to test a proposed dual-branch InkFuseNet.",
+    fullDescription: `
+      <p>Offline, writer-independent handwritten signature verification: given a few genuine reference signatures from a writer the model has never seen before, decide whether a query signature is genuine or forged. Built and evaluated on the Kaggle Signature Verification dataset (686 writers, ~14,600 genuine/forged images).</p>
+
+      <strong>Progress So Far:</strong>
+      <ul>
+        <li><strong>Baseline (Siamese pair classifier, EfficientNet-B4):</strong> 95.3% validation accuracy — but validation pairs came from the same writers as training, which inflated the score; on genuinely unseen writers it drops to 74.35% accuracy (EER 25.65%, AUC 0.82).</li>
+        <li><strong>Current internal best (CurricularFace metric learning, EfficientNet-B4):</strong> switching from pair classification to embedding + margin-softmax metric learning cut EER from 25.65% to 13.35% (a 48% relative improvement) and raised AUC to 0.935, evaluated on 137 held-out unseen writers.</li>
+        <li>Consolidated five independent, inconsistently-configured notebooks (different image sizes, backbones, schedulers, and even a data-leakage bug in one validation protocol) into a single pipeline with shared base classes, a canonical config, and a proper writer-disjoint N-shot evaluation protocol.</li>
+      </ul>
+
+      <strong>Current Focus:</strong>
+      <ul>
+        <li>Implementing and validating <strong>InkFuseNet</strong>: a proposed dual-branch architecture that fuses an ink-cropped ROI view (local stroke texture) with a full-page view (global layout), plus GeM pooling and an auxiliary batch-hard triplet loss alongside CurricularFace.</li>
+        <li>Running an ablation study (full model vs. ROI-only vs. full-page-only vs. no auxiliary triplet vs. no GeM) to isolate which of these proposed components actually earns its place, rather than assuming the combination helps.</li>
+        <li>Testing whether ink-crop + CLAHE preprocessing — which showed the best validation EER (7.71%) on a smaller backbone in earlier notebooks — closes more of the gap to published SOTA (2-8% EER on standard benchmarks) than architecture changes alone.</li>
+      </ul>
+
+      <strong>Tech Stack:</strong> Python, PyTorch, timm, EfficientNet, CurricularFace loss, GeM pooling, metric learning
+    `,
+    skills: ["Computer Vision", "Metric Learning", "Signature Verification", "PyTorch", "Research"],
+    pdfUrl: null,
   },
 ];
 
@@ -235,5 +293,61 @@ const myArticles = [
     skills: ["RAG", "LLM", "Vector DB", "System Design", "Generative AI"],
     pdfUrl: "pdfs/articles/RAG_v2.pdf", 
     linkUrl: null
+  }
+];
+
+const profileStats = [
+  { icon: "fas fa-graduation-cap", value: "2+", label: "Years Grad Research" },
+  { icon: "fas fa-project-diagram", value: "8+", label: "Projects Delivered" },
+  { icon: "fas fa-file-alt", value: "5", label: "Publications" },
+  { icon: "fas fa-microchip", value: "0.9MB", label: "Smallest Model Built" }
+];
+
+const skillCategories = [
+  {
+    category: "Languages",
+    icon: "fas fa-code",
+    skills: ["Python", "C#", "JavaScript", "C", "MATLAB", "SQL"]
+  },
+  {
+    category: "ML & Deep Learning",
+    icon: "fas fa-brain",
+    skills: ["PyTorch", "TensorFlow", "YOLOv5", "OpenCV", "scikit-learn", "Keras", "Model Pruning", "Knowledge Distillation"]
+  },
+  {
+    category: "Web & Full Stack",
+    icon: "fas fa-globe",
+    skills: ["React", ".NET Core", "ASP.NET", "Leaflet.js", "Bootstrap", "HTML/CSS", "REST APIs"]
+  },
+  {
+    category: "Tools & Platforms",
+    icon: "fas fa-tools",
+    skills: ["Git", "Docker", "SQLite", "Raspberry Pi", "Edge AI", "VS Code", "Jupyter"]
+  },
+  {
+    category: "Domain Expertise",
+    icon: "fas fa-flask",
+    skills: ["Computer Vision", "NLP", "Time-Series", "GIS", "Semantic Segmentation", "Object Detection", "Data Analysis"]
+  }
+];
+
+const experienceTimeline = [
+  {
+    type: "education",
+    title: "M.Sc. in Electrical & Electronic Engineering",
+    institution: "Bangladesh University of Engineering and Technology (BUET)",
+    period: "2022 – 2024",
+    description: "Specialized in lightweight deep learning models for edge deployment. Developed YOLOv5 nano-lite for real-time human activity recognition, achieving 0.709 mAP@50 with only 0.9 MB model size.",
+    highlight: "Thesis: Lightweight Human Activity Recognition using Optimized YOLOv5",
+    icon: "fas fa-graduation-cap"
+  },
+  {
+    type: "education",
+    title: "B.Sc. in Electrical & Electronic Engineering",
+    institution: "Chittagong University of Engineering and Technology (CUET)",
+    period: "2015 – 2019",
+    description: "Built foundational knowledge in embedded systems, signal processing, and machine learning. Developed an embedded health-monitoring system for underserved regions as a capstone project.",
+    highlight: "Capstone: Embedded Health Monitoring System",
+    icon: "fas fa-university"
   }
 ];

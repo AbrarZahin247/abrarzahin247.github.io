@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Md. Abrar Zahin - Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
+    
+    <meta property="og:title" content="Md. Abrar Zahin - Portfolio">
+    <meta property="og:description" content="Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
+    <meta property="og:image" content="profile_pic.jpg">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Md. Abrar Zahin - Portfolio">
+    <meta name="twitter:description" content="Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
+    <meta name="twitter:image" content="profile_pic.jpg">
+    
     <title>Md. Abrar Zahin - Portfolio</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -24,6 +35,10 @@
 
     <div class="sidebar" id="sidebar">
       <div class="sidebar-content text-center p-4">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        
         <div class="d-flex justify-content-center">
             <img
           src="profile_pic.jpg"
@@ -42,7 +57,7 @@
           <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="contact-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="#" target="_blank" class="contact-icon" aria-label="GitHub">
+          <a href="https://github.com/AbrarZahin247" target="_blank" class="contact-icon" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -51,6 +66,11 @@
           <li class="nav-item">
             <a class="nav-link active" href="#about" onclick="showSection('about', event)">
               <i class="fas fa-user-circle fa-fw me-2"></i>About Me
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills" onclick="showSection('skills', event)">
+              <i class="fas fa-cogs fa-fw me-2"></i>Skills
             </a>
           </li>
           <li class="nav-item">
@@ -114,7 +134,7 @@
               
               <div class="d-flex gap-3 mt-4">
                  <button class="btn btn-primary" onclick="showSection('works', event)">View Projects</button>
-                 <!-- <a href="#" class="btn btn-outline-dark">Download CV</a> -->
+                 <a href="pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf" class="btn btn-outline-dark" download>Download CV</a>
               </div>
             </div>
           </div>
@@ -132,28 +152,13 @@
         </div>
         
         <div class="row mt-5">
+          <div class="col-12" id="statsContainer"></div>
+        </div>
+        
+        <div class="row mt-5">
           <div class="col-lg-12">
-            <h4 class="px-0 mb-3 border-bottom pb-2">Education</h4>
-            <div class="education-section">
-              <div class="education-item">
-                <div class="d-flex justify-content-between align-items-start flex-wrap">
-                    <div>
-                        <h5 class="mb-1">M.Sc. in Electrical & Electronic Engineering</h5>
-                        <p class="text-primary fw-medium">Bangladesh University of Engineering and Technology (BUET)</p>
-                    </div>
-                    <span class="badge bg-light text-dark border">2022 – 2024</span>
-                </div>
-              </div>
-              <div class="education-item mt-3">
-                 <div class="d-flex justify-content-between align-items-start flex-wrap">
-                    <div>
-                        <h5 class="mb-1">B.Sc. in Electrical & Electronic Engineering</h5>
-                        <p class="text-primary fw-medium">Chittagong University of Engineering and Technology (CUET)</p>
-                    </div>
-                    <span class="badge bg-light text-dark border">2015 – 2019</span>
-                </div>
-              </div>
-            </div>
+            <h4 class="px-0 mb-3 border-bottom pb-2">Education & Experience</h4>
+            <div class="timeline" id="timelineContainer"></div>
           </div>
         </div>
       </div>
@@ -162,7 +167,30 @@
       
       <div id="research" class="content-section" style="display: none"></div>
       <div id="articles" class="content-section" style="display: none"></div>
+      
+      <div id="skills" class="content-section" style="display: none">
+        <h2 class="mb-4 fw-bold border-bottom pb-2">Skills & Expertise</h2>
+        <div class="skills-grid" id="skillsContainer"></div>
+      </div>
+      
     </div>
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">&copy; 2024 Md. Abrar Zahin. Built with Bootstrap & Passion.</p>
+          <div class="footer-links">
+            <a href="mailto:abrar.bd27@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/AbrarZahin247" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <div class="modal fade" id="pdfModal" tabindex="-1">
       <div class="modal-dialog modal-xl">
