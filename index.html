@@ -1,193 +1,372 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Md. Abrar Zahin - Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
-    
-    <meta property="og:title" content="Md. Abrar Zahin - Portfolio">
-    <meta property="og:description" content="Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
-    <meta property="og:image" content="profile_pic.jpg">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Md. Abrar Zahin - Portfolio">
-    <meta name="twitter:description" content="Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis">
-    <meta name="twitter:image" content="profile_pic.jpg">
-    
-    <title>Md. Abrar Zahin - Portfolio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Md. Abrar Zahin — engineer building Zenvira, GRAD, The House Properties, and Avane Labs. Computer vision, edge AI, and digital products." />
+    <meta name="theme-color" content="#08090e" />
+    <meta property="og:title" content="Md. Abrar Zahin — Portfolio" />
+    <meta property="og:description" content="Platforms, research, and models. Zenvira, GRAD, The House Properties, and Avane Labs." />
+    <meta property="og:image" content="profile_pic.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://abrarzahin247.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Md. Abrar Zahin — Portfolio" />
+    <meta name="twitter:description" content="Platforms, research, and models from an EEE engineer in Dhaka." />
+    <meta name="twitter:image" content="profile_pic.jpg" />
+    <title>Md. Abrar Zahin — Portfolio</title>
+    <link rel="canonical" href="https://abrarzahin247.github.io/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520;0,9..144,640;1,9..144,520&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favico.ico" type="image/x-icon" />
   </head>
   <body>
-    
-    <button class="mobile-nav-toggle d-lg-none">
-        <i class="fas fa-bars"></i>
-    </button>
+    <a class="skip" href="#platforms">Skip to platforms</a>
 
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-content text-center p-4">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
-        
-        <div class="d-flex justify-content-center">
-            <img
-          src="profile_pic.jpg"
-          alt="Md. Abrar Zahin"
-          class="rounded-circle mb-3 profile-img"
-        />
-        </div>
-
-        <h4 class="fw-bold mb-1">Md. Abrar Zahin</h4>
-        <p class="text-muted tagline mb-4">Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis</p>
-
-        <div class="contact-links mb-4">
-          <a href="mailto:abrar.bd27@gmail.com" class="contact-icon" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" class="contact-icon" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/AbrarZahin247" target="_blank" class="contact-icon" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-
-        <ul class="nav flex-column text-start">
-          <li class="nav-item">
-            <a class="nav-link active" href="#about" onclick="showSection('about', event)">
-              <i class="fas fa-user-circle fa-fw me-2"></i>About Me
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills" onclick="showSection('skills', event)">
-              <i class="fas fa-cogs fa-fw me-2"></i>Skills
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#works" onclick="showSection('works', event)">
-              <i class="fas fa-briefcase fa-fw me-2"></i>My Works
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#research" onclick="showSection('research', event)">
-              <i class="fas fa-flask fa-fw me-2"></i>My Research
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#articles" onclick="showSection('articles', event)">
-              <i class="fas fa-newspaper fa-fw me-2"></i>Articles
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="ambient" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+      <div class="spotlight" id="spotlight"></div>
+      <div class="grain"></div>
     </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <div class="main-content">
-      
-      <div id="about" class="content-section">
-        <div class="row g-4 align-items-start">
-          
-          <div class="col-lg-7 col-sm-12">
-            <div class="profile-intro">
-              <span class="badge bg-primary mb-2">Open to Work</span>
-              <h1 class="fw-bolder">Engineer in EEE | Web Dev, ML, Computer Vision & Data Analysis</h1>
-              <p class="lead text-muted mb-4">
-                Specializing in building and deploying efficient, user-centric
-                AI solutions from cloud to edge.
-              </p>
+    <header class="topbar" id="topbar">
+      <a class="brand" href="#top">Abrar <span>Zahin</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+      <nav class="menu" id="menu">
+        <a href="#platforms">Platforms</a>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#research">Research</a>
+        <a href="#articles">Articles</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <i class="fas fa-sun"></i>
+      </button>
+    </header>
 
-              <p>
-                With an academic foundation in Electrical & Electronic
-                Engineering from CUET and a Master’s degree from BUET, I am
-                passionate about harnessing the potential of computer vision and
-                AI for social impact. My journey began during my undergraduate
-                studies, where I developed an embedded health‑monitoring system
-                aimed at improving healthcare accessibility in underserved
-                regions.
-              </p>
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="pill rise"><span class="pulse"></span> Open to work · Dhaka</p>
+            <p class="kicker rise rise-2">Engineer · Builder · Researcher</p>
+            <h1 class="rise rise-3">Md. Abrar <em>Zahin</em></h1>
+            <p class="hero-lede rise rise-4">
+              I design and ship digital platforms, then go back to the model until it runs on hardware people actually have.
+            </p>
+            <div class="hero-actions rise rise-5">
+              <a class="btn-gold" href="#platforms">See the platforms</a>
+              <a class="btn-ghost" href="pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf" target="_blank" rel="noopener">Read the thesis</a>
+            </div>
+            <ul class="hero-links rise rise-6">
+              <li><a href="mailto:abrar.bd27@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+              <li><a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="https://github.com/AbrarZahin247" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+            </ul>
+          </div>
+          <div class="hero-portrait rise rise-4">
+            <div class="portrait-ring" aria-hidden="true"></div>
+            <img src="profile_pic.jpg" alt="Portrait of Md. Abrar Zahin" />
+            <p class="portrait-caption">EEE · CUET & BUET</p>
+          </div>
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Computer Vision</span><span>Edge AI</span><span>Digital Platforms</span><span>GIS</span><span>Research Software</span><span>Wellness</span><span>Real Estate</span>
+            <span>Computer Vision</span><span>Edge AI</span><span>Digital Platforms</span><span>GIS</span><span>Research Software</span><span>Wellness</span><span>Real Estate</span>
+          </div>
+        </div>
+      </section>
 
-              <p>
-                My graduate research at BUET focused on advancing lightweight
-                models for human activity detection. I successfully developed a
-                streamlined variant of the YOLOv5 model, optimized for detecting
-                smaller objects with higher frames per second (FPS) and
-                achieving impressive accuracy and performance on
-                resource-constrained devices.
-              </p>
+      <section class="section" id="platforms">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">04 live</p>
+            <h2>Platforms I designed and built.</h2>
+            <p class="lede">Each one is live. The frames below are screenshots of the homepages, taken from the sites themselves.</p>
+          </header>
+          <div class="index-grid">
+            <a class="index-card tone-lab" href="#avanelabs">
+              <img src="images/platforms/avanelabs.png" alt="" />
+              <span class="index-shade"></span>
+              <span class="index-no">01</span>
+              <span class="index-body">
+                <strong>Avane Labs</strong>
+                <em>Personal lab for vision, analytics, and products.</em>
+              </span>
+            </a>
+            <a class="index-card tone-zen" href="#zenvira">
+              <img src="images/platforms/zenvira.png" alt="" />
+              <span class="index-shade"></span>
+              <span class="index-no">02</span>
+              <span class="index-body">
+                <strong>Zenvira</strong>
+                <em>A private journal. Not therapy. A quiet room.</em>
+              </span>
+            </a>
+            <a class="index-card tone-grad" href="#grad">
+              <img src="images/platforms/grad.png" alt="" />
+              <span class="index-shade"></span>
+              <span class="index-no">03</span>
+              <span class="index-body">
+                <strong>GRAD</strong>
+                <em>Research software where the human stays the author.</em>
+              </span>
+            </a>
+            <a class="index-card tone-house" href="#house">
+              <img src="images/platforms/house.png" alt="" />
+              <span class="index-shade"></span>
+              <span class="index-no">04</span>
+              <span class="index-body">
+                <strong>The House</strong>
+                <em>Premium Dhaka residences, presented with editorial calm.</em>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-              <p>
-                My vision is to create tools that empower individuals and
-                improve lives. I am focused on building impactful solutions that
-                drive positive change and contribute to meaningful societal
-                progress.
-              </p>
-              
-              <div class="d-flex gap-3 mt-4">
-                 <button class="btn btn-primary" onclick="showSection('works', event)">View Projects</button>
-                 <a href="pdfs/MSc_Thesis_Md.Abrar_Zahin_compressed.pdf" class="btn btn-outline-dark" download>Download CV</a>
-              </div>
+      <section class="chapter-wrap tone-lab" id="avanelabs">
+        <div class="wrap chapter">
+          <div class="chapter-copy">
+            <p class="kicker">01 · Personal lab</p>
+            <h2>Avane Labs</h2>
+            <p class="chapter-line">Advanced Vision, Analytics & Novel Engineering.</p>
+            <p>
+              Avane Labs is my lab in Dhaka. It is where the research leaves the notebook — lightweight vision, offline intelligence, and digital products built to be opened, not demoed.
+            </p>
+            <p>
+              The studio site holds the practice in one place: selected work, the edge-AI benchmark behind my thesis, and the disciplines I keep returning to. Zenvira and The House live here as shipped products. GRAD is its own research platform, built with the same rule — the person decides.
+            </p>
+            <ul class="chip-row">
+              <li>Computer vision</li>
+              <li>Edge AI</li>
+              <li>Offline systems</li>
+              <li>Digital products</li>
+            </ul>
+            <div class="chapter-actions">
+              <a class="btn-gold" href="https://avanelabs.com/" target="_blank" rel="noopener">Visit avanelabs.com</a>
+              <a class="btn-ghost" href="#research">See the research</a>
             </div>
           </div>
+          <a class="shot" href="https://avanelabs.com/" target="_blank" rel="noopener">
+            <span class="shot-bar"><i></i><i></i><i></i><em>avanelabs.com</em><span>Live</span></span>
+            <img src="images/platforms/avanelabs.png" alt="Screenshot of the Avane Labs homepage" width="1440" height="900" />
+            <span class="shot-cta">Open the live site</span>
+          </a>
+        </div>
+      </section>
 
-          <div class="col-lg-5 col-sm-12">
-            <div class="video-card mb-4">
-              <h6 class="video-title">YOLOv5 Nano-Lite (Optimized)</h6>
-              <video class="w-100" src="videos/21_fps_har_nano_lite.mp4" controls muted loop poster="video_tumbnail.PNG"></video>
+      <section class="chapter-wrap tone-zen" id="zenvira">
+        <div class="wrap chapter flip">
+          <a class="shot" href="https://zenvira.reddotblue.net/" target="_blank" rel="noopener">
+            <span class="shot-bar"><i></i><i></i><i></i><em>zenvira.reddotblue.net</em><span>Live</span></span>
+            <img src="images/platforms/zenvira.png" alt="Screenshot of the Zenvira homepage" width="1440" height="900" />
+            <span class="shot-cta">Open the live site</span>
+          </a>
+          <div class="chapter-copy">
+            <p class="kicker">02 · Wellness</p>
+            <h2>Zenvira</h2>
+            <p class="chapter-line">Inner peace, outer strength.</p>
+            <p>
+              Zenvira is a private journaling companion. The name splits in two: Zen, for inner calm, and Vira, for the courage to keep going. It is explicitly not therapy and not a medical tool — a place to notice how you feel, then step away.
+            </p>
+            <div class="feature-grid">
+              <article>
+                <h3>Friendly chat</h3>
+                <p>A companion that listens. No advice, no diagnosis.</p>
+              </article>
+              <article>
+                <h3>Daily check-in</h3>
+                <p>Mood and energy, noticed gently over time.</p>
+              </article>
+              <article>
+                <h3>Meditation player</h3>
+                <p>Nature sound and guided audio, matched to time and mood.</p>
+              </article>
+              <article>
+                <h3>Crisis support</h3>
+                <p>A help button that points to people, not a chatbot counselor.</p>
+              </article>
             </div>
-            <div class="video-card">
-              <h6 class="video-title">YOLOv5 Nano (Baseline)</h6>
-              <video class="w-100" src="videos/16_fps_har_nano.mp4" controls muted loop poster="video_tumbnail.PNG"></video>
+            <div class="chapter-actions">
+              <a class="btn-gold" href="https://zenvira.reddotblue.net/" target="_blank" rel="noopener">Visit Zenvira</a>
+              <a class="btn-ghost" href="https://zenvira.reddotblue.net/blog" target="_blank" rel="noopener">Read the blog</a>
             </div>
           </div>
         </div>
-        
-        <div class="row mt-5">
-          <div class="col-12" id="statsContainer"></div>
+      </section>
+
+      <section class="chapter-wrap tone-grad" id="grad">
+        <div class="wrap chapter">
+          <div class="chapter-copy">
+            <p class="kicker">03 · Research software</p>
+            <h2>GRAD</h2>
+            <p class="chapter-line">Geospatial, Remote Sensing, AI & Data Analytics.</p>
+            <p>
+              GRAD is a workspace for research teams. I built it around one belief: the researcher does the research. AI can widen what a team can see. It does not make the call, and nothing enters a paper without a person approving it.
+            </p>
+            <ol class="flow">
+              <li><strong>Ingest</strong><span>Papers, datasets, and notes become one shared knowledge base.</span></li>
+              <li><strong>Investigate</strong><span>Ask questions. Gaps come back with sources attached.</span></li>
+              <li><strong>Experiment</strong><span>RunSync writes a notebook, runs on your compute, and syncs the record.</span></li>
+              <li><strong>Author</strong><span>Live LaTeX, then domain-lead review before anything ships.</span></li>
+            </ol>
+            <div class="chapter-actions">
+              <a class="btn-gold" href="https://gradresearch.org/" target="_blank" rel="noopener">Visit gradresearch.org</a>
+            </div>
+          </div>
+          <a class="shot" href="https://gradresearch.org/" target="_blank" rel="noopener">
+            <span class="shot-bar"><i></i><i></i><i></i><em>gradresearch.org</em><span>Live</span></span>
+            <img src="images/platforms/grad.png" alt="Screenshot of the GRAD homepage" width="1440" height="900" />
+            <span class="shot-cta">Open the live site</span>
+          </a>
         </div>
-        
-        <div class="row mt-5">
-          <div class="col-lg-12">
-            <h4 class="px-0 mb-3 border-bottom pb-2">Education & Experience</h4>
-            <div class="timeline" id="timelineContainer"></div>
+      </section>
+
+      <section class="chapter-wrap tone-house" id="house">
+        <div class="wrap chapter flip">
+          <a class="shot" href="https://thehouseproperties.com/" target="_blank" rel="noopener">
+            <span class="shot-bar"><i></i><i></i><i></i><em>thehouseproperties.com</em><span>Live</span></span>
+            <img src="images/platforms/house.png" alt="Screenshot of The House Properties homepage" width="1440" height="900" />
+            <span class="shot-cta">Open the live site</span>
+          </a>
+          <div class="chapter-copy">
+            <p class="kicker">04 · Real estate</p>
+            <h2>The House Properties</h2>
+            <p class="chapter-line">Building trust. Delivering excellence.</p>
+            <p>
+              A digital home for a Dhaka developer of premium residences. I treated the collection as editorial, not a listing grid: architecture first, then the houses, then a direct path to book a viewing.
+            </p>
+            <ul class="place-list">
+              <li>Urban Nest</li>
+              <li>Sky Courtyard</li>
+              <li>EDGE Ecstasy</li>
+              <li>Gala Jholshiri</li>
+              <li>ATRIO</li>
+              <li>South Vista</li>
+            </ul>
+            <p class="fine">Residences across Bashundhara R/A and VIP zones, with a live availability view for units that are still open.</p>
+            <div class="chapter-actions">
+              <a class="btn-gold" href="https://thehouseproperties.com/" target="_blank" rel="noopener">Visit the site</a>
+              <a class="btn-ghost" href="https://thehouseproperties.com/inventory.html" target="_blank" rel="noopener">Live availability</a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div id="works" class="content-section" style="display: none"></div>
-      
-      <div id="research" class="content-section" style="display: none"></div>
-      <div id="articles" class="content-section" style="display: none"></div>
-      
-      <div id="skills" class="content-section" style="display: none">
-        <h2 class="mb-4 fw-bold border-bottom pb-2">Skills & Expertise</h2>
-        <div class="skills-grid" id="skillsContainer"></div>
-      </div>
-      
-    </div>
-    
+      <section class="section" id="about">
+        <div class="wrap about-grid">
+          <div class="about-copy">
+            <p class="kicker">About</p>
+            <h2>From the lab bench to something a person can open.</h2>
+            <p class="lede">Specializing in building and deploying efficient, user-centric AI — from cloud to edge.</p>
+            <p>
+              With an academic foundation in Electrical & Electronic Engineering from CUET and a Master’s degree from BUET, I am passionate about harnessing computer vision and AI for social impact. My journey began during undergraduate studies, where I developed an embedded health-monitoring system aimed at improving healthcare accessibility in underserved regions.
+            </p>
+            <p>
+              Graduate research at BUET focused on lightweight models for human activity detection. I developed a streamlined variant of YOLOv5, optimized for smaller objects, higher frames per second, and resource-constrained devices.
+            </p>
+            <p>
+              That same instinct now shows up in software I ship. Zenvira, GRAD, and The House Properties are live products. Avane Labs is the studio site for the practice behind them — useful, careful, and actually open.
+            </p>
+          </div>
+          <div class="about-media">
+            <figure class="video-frame">
+              <figcaption>YOLOv5 Nano-Lite · 21 FPS</figcaption>
+              <video src="videos/21_fps_har_nano_lite.mp4" controls muted loop playsinline poster="video_tumbnail.PNG"></video>
+            </figure>
+            <figure class="video-frame">
+              <figcaption>YOLOv5 Nano · 16 FPS baseline</figcaption>
+              <video src="videos/16_fps_har_nano.mp4" controls muted loop playsinline poster="video_tumbnail.PNG"></video>
+            </figure>
+          </div>
+        </div>
+        <div class="wrap stats-wrap">
+          <div id="statsContainer"></div>
+        </div>
+        <div class="wrap">
+          <header class="section-head tight">
+            <p class="kicker">Path</p>
+            <h2>Education & the lab</h2>
+          </header>
+          <div class="timeline" id="timelineContainer"></div>
+        </div>
+      </section>
+
+      <section class="section" id="works">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Selected projects</p>
+            <h2>Work that taught the craft.</h2>
+            <p class="lede">Models, maps, and systems — measured, not just demonstrated.</p>
+          </header>
+          <div class="mount"></div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Papers & studies</p>
+            <h2>Questions I am still inside.</h2>
+            <p class="lede">Lightweight vision, groundwater, rainfall, and signatures.</p>
+          </header>
+          <div class="mount"></div>
+        </div>
+      </section>
+
+      <section class="section" id="articles">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Notes</p>
+            <h2>Articles & presentations.</h2>
+            <p class="lede">How I explain the systems I use.</p>
+          </header>
+          <div class="mount"></div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Toolkit</p>
+            <h2>Skills & expertise.</h2>
+          </header>
+          <div class="skills-grid" id="skillsContainer"></div>
+        </div>
+      </section>
+    </main>
+
     <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p class="footer-text">&copy; 2024 Md. Abrar Zahin. Built with Bootstrap & Passion.</p>
-          <div class="footer-links">
-            <a href="mailto:abrar.bd27@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/AbrarZahin247" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          </div>
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-brand">Md. Abrar Zahin</p>
+          <p>Engineer in EEE. Platforms, models, and quiet tools.</p>
         </div>
+        <div class="footer-links">
+          <a href="mailto:abrar.bd27@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/abrarzahin2021/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/AbrarZahin247" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://avanelabs.com/" target="_blank" rel="noopener" aria-label="Avane Labs">Lab</a>
+        </div>
+      </div>
+      <div class="wrap footer-base">
+        <p>© 2026 Md. Abrar Zahin</p>
+        <a href="#top">Back to top</a>
       </div>
     </footer>
-    
+
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <i class="fas fa-arrow-up"></i>
     </button>
@@ -196,11 +375,11 @@
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Document Viewer</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <h5 class="modal-title">Document</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body pdf-modal">
-            <iframe id="pdfFrame" title="PDF Document"></iframe>
+            <iframe id="pdfFrame" title="PDF document"></iframe>
           </div>
         </div>
       </div>
@@ -211,10 +390,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalProjectTitle"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <img src="" alt="" id="modalProjectImage" class="img-fluid rounded mb-3 w-100" />
+            <img src="" alt="" id="modalProjectImage" />
             <div id="modalProjectDescription"></div>
           </div>
         </div>

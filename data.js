@@ -184,16 +184,16 @@ const myResearch = [
     pdfUrl: null,
   },
   {
-    title: "Zero-Inflated Rainfall Forecasting",
+    title: "ZiNet: A Gated Deep Learning Approach for Sparse Rainfall Forecasting",
     status: "Completed",
-    imageUrl: "images/zeroinflated_rainfall.png", // Ensure you add a relevant image to your folder
-    shortDescription: "Developed 'ZARQ-Net', a specialized deep learning architecture with a custom composite loss function (ZILoss) to accurately forecast rainfall in sparse, zero-dominated datasets.",
+    imageUrl: "images/zeroinflated_rainfall.png",
+    shortDescription: "ZiNet, a gated deep learning model for sparse rainfall forecasting, with a case study of northeastern Bangladesh.",
     fullDescription: `
-      <p>Standard forecasting models often fail on environmental data because of "mean-collapse"—the tendency to predict safe averages instead of capturing extreme weather events. To solve this, I developed a novel framework tailored for zero-inflated (sparse) time-series data.</p>
+      <p>Standard forecasting models often fail on environmental data because of "mean-collapse"—the tendency to predict safe averages instead of capturing extreme weather events. To solve this, I developed ZiNet, a gated deep learning approach for sparse rainfall, studied on northeastern Bangladesh.</p>
       
       <strong>My Approach:</strong>
       <ul>
-        <li><strong>New Architecture (ZARQ-Net):</strong> Designed a 1D-CNN backbone incorporating dilated convolutions for long-range dependencies and Squeeze-and-Excitation (SE) blocks for feature selection. I implemented a unique "hard gating" mechanism that decouples event detection (classification) from magnitude estimation (regression).</li>
+        <li><strong>ZiNet:</strong> Designed a 1D-CNN backbone incorporating dilated convolutions for long-range dependencies and Squeeze-and-Excitation (SE) blocks for feature selection. A hard gating mechanism decouples event detection (classification) from magnitude estimation (regression).</li>
         <li><strong>New Loss Function (ZILoss):</strong> Formulated a composite objective function that combines <em>Focal Loss</em> (to handle extreme class imbalance) with <em>Asymmetric MSE</em> (to heavily penalize under-predictions), forcing the model to learn rare rainfall spikes rather than collapsing to zero.</li>
       </ul>
       
@@ -207,7 +207,7 @@ const myResearch = [
       <strong>Tech Stack:</strong> Python, PyTorch, Deep Learning, 1D-CNN, Custom Loss Functions, Time-Series Analysis
     `,
     skills: ["Deep Learning", "Time-Series", "PyTorch", "Research"],
-    pdfUrl: "pdfs/v2_BMD_RainFall_IEEE_Template.pdf",
+    pdfUrl: "https://drive.google.com/file/d/1-ffB5Lu6-FmhhWwEczzearOTPw61ODqi/view?usp=sharing",
   },
   {
     title: "Probabilistic Groundwater-Level Forecasting (Extended Study)",
@@ -324,7 +324,7 @@ const myArticles = [
 ];
 
 const profileStats = [
-  { icon: "fas fa-graduation-cap", value: "2+", label: "Years Grad Research" },
+  { icon: "fas fa-layer-group", value: "4", label: "Live Platforms" },
   { icon: "fas fa-project-diagram", value: "8+", label: "Projects Delivered" },
   { icon: "fas fa-file-alt", value: "6", label: "Publications" },
   { icon: "fas fa-microchip", value: "0.9MB", label: "Smallest Model Built" }
@@ -344,7 +344,7 @@ const skillCategories = [
   {
     category: "Web & Full Stack",
     icon: "fas fa-globe",
-    skills: ["React", ".NET Core", "ASP.NET", "Leaflet.js", "Bootstrap", "HTML/CSS", "REST APIs"]
+    skills: ["React", "Next.js", ".NET Core", "ASP.NET", "Leaflet.js", "HTML/CSS", "REST APIs"]
   },
   {
     category: "Tools & Platforms",
@@ -359,6 +359,15 @@ const skillCategories = [
 ];
 
 const experienceTimeline = [
+  {
+    type: "work",
+    title: "Avane Labs",
+    institution: "Personal lab · Dhaka, Bangladesh",
+    period: "2026",
+    description: "My lab for computer vision, edge AI, and digital products. The studio site is where the research leaves the notebook — and where shipped work such as Zenvira and The House Properties is presented.",
+    highlight: "Advanced Vision, Analytics & Novel Engineering",
+    icon: "fas fa-flask"
+  },
   {
     type: "education",
     title: "M.Sc. in Electrical & Electronic Engineering",
