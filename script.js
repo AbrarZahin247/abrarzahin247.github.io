@@ -9,10 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initSpotlight();
   initProgress();
-  initScrollAnimations();
+  initReveals();
+  initPointerGlow();
   initBackToTop();
 });
 
+const prefersReducedMotion = () =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ------------------------------------------------------------
+   Data rendering
+   ------------------------------------------------------------ */
 function renderSection(sectionId, dataArray) {
   const section = document.getElementById(sectionId);
   const mount = section && section.querySelector('.mount');
@@ -35,9 +42,9 @@ function renderSection(sectionId, dataArray) {
       : '';
 
     return `
-      <article class="project-card animate-on-scroll" data-skills="${(item.skills || []).join(',')}" style="--d:${Math.min(index, 6) * 0.06}s">
+      <article class="project-card animate-on-scroll" data-skills="${(item.skills || []).join(',')}" style="--d:${Math.min(index, 6) * 60}ms">
         <div class="project-image">
-          <img src="${item.imageUrl}" alt="${item.title}" loading="lazy">
+          <img src="${item.imageUrl}" alt="${item.title}" loading="lazy" decoding="async">
           ${statusHTML}
         </div>
         <div class="project-content">
@@ -59,7 +66,7 @@ function renderSection(sectionId, dataArray) {
 
   mount.innerHTML = `${filterHTML}<div class="project-grid">${gridHTML}</div>`;
   initFilters(section);
-  initScrollAnimations();
+  initReveals();
 }
 
 function initFilters(container) {
@@ -79,13 +86,6 @@ function initFilters(container) {
       });
     });
   });
-}
-
-function showSection(sectionId, event) {
-  if (event) event.preventDefault();
-  const target = document.getElementById(sectionId);
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  closeMenu();
 }
 
 function openDetails(type, index) {
@@ -110,8 +110,8 @@ function openPdf(url) {
 function renderStats() {
   const container = document.getElementById('statsContainer');
   if (!container || typeof profileStats === 'undefined') return;
-  container.innerHTML = `<div class="stats-row">${profileStats.map(stat => `
-    <div class="stat-card animate-on-scroll">
+  container.innerHTML = `<div class="stats-row">${profileStats.map((stat, i) => `
+    <div class="stat-card animate-on-scroll" style="--d:${i * 80}ms">
       <div class="stat-icon"><i class="${stat.icon}"></i></div>
       <div class="stat-value" data-count="${stat.value}">${stat.value}</div>
       <div class="stat-label">${stat.label}</div>
@@ -122,8 +122,8 @@ function renderStats() {
 function renderTimeline() {
   const container = document.getElementById('timelineContainer');
   if (!container || typeof experienceTimeline === 'undefined') return;
-  container.innerHTML = experienceTimeline.map(item => `
-    <article class="timeline-item animate-on-scroll">
+  container.innerHTML = experienceTimeline.map((item, i) => `
+    <article class="timeline-item animate-on-scroll" style="--d:${i * 80}ms">
       <div class="timeline-dot"><i class="${item.icon}"></i></div>
       <div class="timeline-content">
         <div class="timeline-header">
@@ -143,8 +143,8 @@ function renderTimeline() {
 function renderSkills() {
   const container = document.getElementById('skillsContainer');
   if (!container || typeof skillCategories === 'undefined') return;
-  container.innerHTML = skillCategories.map(category => `
-    <article class="skill-category animate-on-scroll">
+  container.innerHTML = skillCategories.map((category, i) => `
+    <article class="skill-category animate-on-scroll" style="--d:${i * 70}ms">
       <div class="skill-category-header">
         <i class="${category.icon} skill-category-icon"></i>
         <h3 class="skill-category-title">${category.category}</h3>
@@ -156,6 +156,9 @@ function renderSkills() {
   `).join('');
 }
 
+/* ------------------------------------------------------------
+   Theme
+   ------------------------------------------------------------ */
 function initTheme() {
   const toggle = document.getElementById('themeToggle');
   const root = document.documentElement;
@@ -166,16 +169,22 @@ function initTheme() {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     localStorage.setItem('portfolio-theme', next);
     applyTheme(next);
+    toggle.classList.add('spin');
+    setTimeout(() => toggle.classList.remove('spin'), 480);
   });
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     const icon = toggle.querySelector('i');
     icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#08090e' : '#f4efe6');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0b10' : '#f7f5f0');
   }
 }
 
+/* ------------------------------------------------------------
+   Navigation
+   ------------------------------------------------------------ */
 function initNav() {
   const toggle = document.getElementById('navToggle');
   const menu = document.getElementById('menu');
@@ -203,7 +212,7 @@ function initNav() {
 
   const onScroll = () => {
     bar.classList.toggle('scrolled', window.scrollY > 8);
-    const mark = window.scrollY + 120;
+    const mark = window.scrollY + 140;
     let current = sections[0];
     sections.forEach(section => {
       if (section.offsetTop <= mark) current = section;
@@ -227,16 +236,30 @@ function closeMenu() {
   toggle.setAttribute('aria-label', 'Open menu');
 }
 
+/* ------------------------------------------------------------
+   Ambient spotlight
+   ------------------------------------------------------------ */
 function initSpotlight() {
   const spot = document.getElementById('spotlight');
-  if (!spot || window.matchMedia('(pointer: coarse)').matches) return;
+  if (!spot || window.matchMedia('(pointer: coarse)').matches || prefersReducedMotion()) return;
+
+  let x = 0, y = 0, raf = null;
+  const render = () => {
+    raf = null;
+    spot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  };
+
   window.addEventListener('pointermove', (event) => {
+    x = event.clientX;
+    y = event.clientY;
     spot.style.opacity = '1';
-    spot.style.left = `${event.clientX}px`;
-    spot.style.top = `${event.clientY}px`;
+    if (!raf) raf = requestAnimationFrame(render);
   }, { passive: true });
 }
 
+/* ------------------------------------------------------------
+   Scroll progress
+   ------------------------------------------------------------ */
 function initProgress() {
   const bar = document.getElementById('scrollProgress');
   if (!bar) return;
@@ -245,23 +268,61 @@ function initProgress() {
     bar.style.width = `${height > 0 ? (window.scrollY / height) * 100 : 0}%`;
   };
   window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
   update();
 }
 
+/* ------------------------------------------------------------
+   Scroll reveals
+   ------------------------------------------------------------ */
+const REVEAL_SELECTORS = [
+  '.section-head',
+  '.chapter-copy',
+  '.shot',
+  '.about-copy',
+  '.about-media',
+];
+
 let revealObserver;
-function initScrollAnimations() {
+
+function getObserver() {
   if (!revealObserver) {
     revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('animated');
-        const value = entry.target.querySelector('[data-count]');
+        const target = entry.target;
+        target.classList.add(target.classList.contains('animate-on-scroll') ? 'animated' : 'in');
+        const value = target.querySelector('[data-count]');
         if (value) countUp(value);
-        revealObserver.unobserve(entry.target);
+        revealObserver.unobserve(target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
   }
-  document.querySelectorAll('.animate-on-scroll:not(.animated)').forEach(el => revealObserver.observe(el));
+  return revealObserver;
+}
+
+function initReveals() {
+  if (prefersReducedMotion()) return;
+  const observer = getObserver();
+
+  REVEAL_SELECTORS.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      if (el.matches('.reveal, .animate-on-scroll')) return;
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  });
+
+  document.querySelectorAll('.index-card').forEach((el, i) => {
+    el.style.setProperty('--d', `${i * 80}ms`);
+    if (!el.matches('.reveal')) {
+      el.classList.add('reveal');
+      observer.observe(el);
+    }
+  });
+
+  document.querySelectorAll('.reveal:not(.in), .animate-on-scroll:not(.animated)')
+    .forEach(el => observer.observe(el));
 }
 
 function countUp(el) {
@@ -273,7 +334,7 @@ function countUp(el) {
   const decimals = match[1].includes('.') ? 1 : 0;
   const start = performance.now();
   const tick = (now) => {
-    const t = Math.min(1, (now - start) / 800);
+    const t = Math.min(1, (now - start) / 900);
     const eased = 1 - Math.pow(1 - t, 3);
     el.textContent = (end * eased).toFixed(decimals) + suffix;
     if (t < 1) requestAnimationFrame(tick);
@@ -281,11 +342,30 @@ function countUp(el) {
   requestAnimationFrame(tick);
 }
 
+/* ------------------------------------------------------------
+   Pointer-tracked card glow
+   ------------------------------------------------------------ */
+function initPointerGlow() {
+  if (window.matchMedia('(hover: none)').matches || prefersReducedMotion()) return;
+  const selector = '.stat-card, .timeline-content, .skill-category, .feature-grid article';
+
+  document.addEventListener('pointermove', (event) => {
+    const card = event.target.closest(selector);
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+  }, { passive: true });
+}
+
+/* ------------------------------------------------------------
+   Back to top
+   ------------------------------------------------------------ */
 function initBackToTop() {
   const button = document.getElementById('backToTop');
   if (!button) return;
   window.addEventListener('scroll', () => {
-    button.classList.toggle('visible', window.scrollY > 500);
+    button.classList.toggle('visible', window.scrollY > 600);
   }, { passive: true });
   button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
