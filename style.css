@@ -975,6 +975,22 @@ section[id] { scroll-margin-top: 88px; }
   .chapter.flip .shot-cta { left: 1rem; right: auto; }
 }
 
+/* expanded write-up beneath a chapter panel */
+.chapter-detail {
+  margin-top: clamp(1.8rem, 3.5vw, 2.8rem);
+  padding-top: clamp(1.6rem, 3vw, 2.4rem);
+  border-top: 1px solid var(--line);
+}
+.chapter-detail .kicker { margin-bottom: 1.1rem; }
+.chapter-detail-body { color: var(--muted); }
+.chapter-detail-body p { margin: 0 0 1rem; }
+.chapter-detail-body p:last-child { margin-bottom: 0; }
+.chapter-detail-body strong { color: var(--ink); font-weight: 600; }
+
+@media (min-width: 880px) {
+  .chapter-detail-body { columns: 2; column-gap: 3.2rem; }
+}
+
 /* ------------------------------------------------------------
    13. Cards (shared surface)
    ------------------------------------------------------------ */

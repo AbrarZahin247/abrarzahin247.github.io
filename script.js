@@ -278,6 +278,7 @@ function initProgress() {
 const REVEAL_SELECTORS = [
   '.section-head',
   '.chapter-copy',
+  '.chapter-detail',
   '.shot',
   '.about-copy',
   '.about-media',

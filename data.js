@@ -326,7 +326,7 @@ const myArticles = [
 const profileStats = [
   { icon: "fas fa-layer-group", value: "4", label: "Live Platforms" },
   { icon: "fas fa-project-diagram", value: "8+", label: "Projects Delivered" },
-  { icon: "fas fa-file-alt", value: "6", label: "Publications" },
+  { icon: "fas fa-microscope", value: String(myResearch.length), label: "Research Works" },
   { icon: "fas fa-microchip", value: "0.9MB", label: "Smallest Model Built" }
 ];
 
